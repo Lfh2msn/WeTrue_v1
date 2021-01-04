@@ -1,0 +1,332 @@
+/*Fytx_Tips 弹窗样式*/
+.fytx_alert_background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999
+}
+
+.fytx_alert_background .fytx_alert_box {
+    width: 302px;
+    height: auto;
+    padding: 0 15px 20px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+    top: 30%;
+    left: 50%;
+    margin: 0 0 0 -156px
+}
+
+.fytx_alert_background .fytx_alert_title {
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #99bafa;
+    font-size: 16px;
+    color: #333;
+    line-height: 45px;
+    text-align: center
+}
+
+.fytx_alert_background .fytx_alert_message {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 25px 40px 35px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    line-height: 28px
+}
+
+.fytx_alert_background .fytx_alert_btn {
+    display: block;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #3475f5;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin: 0 auto;
+    text-align: center
+}
+
+.fytx_confirm_background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999
+}
+
+.fytx_confirm_background .fytx_confirm_box {
+	width: 302px;
+	height: auto;
+	padding: 0 15px 20px;
+	box-sizing: border-box;
+	background: #fff;
+	border-radius: 8px;
+	position: relative;
+	top: 30%;
+	left: 50%;
+	margin: 0 0 0 -156px
+}
+
+.fytx_confirm_background .fytx_confirm_title {
+	width: 100%;
+	height: 45px;
+	border-bottom: 1px solid #99bafa;
+	font-size: 16px;
+	color: #333;
+	line-height: 45px;
+	text-align: center
+}
+
+.fytx_confirm_background .fytx_confirm_message {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	padding: 25px 40px 35px;
+	text-align: center;
+	font-size: 16px;
+	color: #333;
+	box-sizing: border-box;
+	line-height: 28px
+}
+
+.fytx_confirm_background .fytx_confirm_okbtn {
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    line-height: 34px;
+    background-color: #3475f5;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-align: center;
+    margin-left: 44px;
+    margin-right: 47px
+}
+
+.fytx_confirm_background .fytx_confirm_cancelbtn {
+    display: inline-block;
+    width: 50px;
+    height: 34px;
+    line-height: 34px;
+    background: fff;
+    cursor: pointer;
+    font-size: 14px;
+    color: #3475f5;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-align: center;
+    border: 1px solid #3475f5
+}
+
+.fytx_toast_background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999
+}
+
+.fytx_toast_background .fytx_toast_box {
+    width: 212px;
+    height: auto;
+    cursor: pointer;
+    padding: 15px 20px;
+    text-align: center;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    line-height: 24px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: 0 0 0 -106px;
+}
+
+/*textarea_无框 样式*/
+.text_ZeroFrame {
+    overflow:hidden;
+    background-color:white;
+    resize:none;
+    outline: none;
+    border-left:0px;
+    border-top:0px;
+    border-right:0px;
+    border-bottom:0px;
+}
+
+/*textarea_有框 样式*/
+.text_BandFrame {
+    background-color:white;
+    overflow:hidden;
+    resize:none;
+    outline: none;
+}
+
+/*正在加载 样式*/
+.getContent {
+    position:fixed;
+    left:10%;
+    bottom:0;
+    opacity:0.7;
+    width:80%;
+    height:40px;
+    line-height:40px;
+    border-radius:6px 6px 0 0;
+    background:#fff;
+    color:#000;
+    text-align:center;
+}
+
+/*正在加载 End 样式*/
+.getContentEnd {
+    bottom:0;
+    opacity:0.2;
+    width:100%;
+    text-align:center;
+}
+
+/*自动图片宽高 样式*/
+.autoimg_div {
+    display: flex;
+    zoom: 1;
+    width: 310px;
+    height:180px;
+}
+.autoimg_img {
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%
+}
+
+/*最新图片 样式*/
+.autoLatest_div {
+    display: flex;
+    zoom: 1;
+}
+.autoLatest_img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+/*上传图片 --上传图片样式*/
+.upload_img {
+    font-size: 35px;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.upload_img input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.upload_img img {
+    width:55px;
+    height:55px;
+    position: absolute;
+    left:0px;
+    top:0px;
+}
+
+.upload_img:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+
+/*a upload --头像上传input样式*/
+.a-upload {
+    padding: 4px 10px;
+    height: 30px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none;
+}
+
+/*头像选中显示修改 */
+.hy-txa span { 
+    visibility:hidden;
+    width:42px;
+    height:42px;
+    position:absolute;
+    color:white;
+    text-align:center;
+    line-height:42px;
+    left:0;
+    top:6px;
+    background:#000;
+    opacity:0.7; 
+}
+.hy-txa:hover span {visibility:visible;}
+
+/*大图蒙层禁止滑动*/
+body.dialog-open {
+    position: fixed;
+    width: 100%;
+}
