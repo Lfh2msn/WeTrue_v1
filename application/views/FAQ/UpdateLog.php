@@ -16,6 +16,11 @@
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
 
+2021-01-04
+-新增主贴搜索
+-新增评论搜索
+-新增用户搜索
+
 2020-12-30
 -修复管理URL
 -防止登录时浏览器记住助记词及密码
