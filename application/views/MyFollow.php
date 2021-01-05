@@ -9,7 +9,7 @@ var max_page = 0;
 var pageLimit = 10;
 var lastpangenum;
 autoScroll();
-get_content()
+get_content();
 
 function get_content(){
     var str = '';
