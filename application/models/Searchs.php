@@ -90,17 +90,17 @@ class Searchs extends CI_Model {
         $pageLimit=$pageLimit; //几条
           
         $this->load->database();
-        $sql="SELECT count(username) FROM wet_users WHERE username='$Type'";
-        $query = $this->db->query($sql);
-        $row = $query->row();
-        $totalSize=$row->count;//总数量
+        $ssql="SELECT count(username) FROM wet_users WHERE username ilike '%$Type%'";
+        $squery = $this->db->query($ssql);
+        $srow = $squery->row();
+        $totalSize=$srow->count;//总数量
         $totalPage=ceil($totalSize/$pageLimit);//总页数
         $todata['pageNum'] = $pageNum;//数量
         $todata['pageLimit'] = $pageLimit;//数量
         $todata['totalPage'] = $totalPage;//总页数
         $todata['totalSize'] = $totalSize;//总数
 
-        $sql="SELECT * from wet_users WHERE username='$Type' order by uid desc LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
+        $sql="SELECT * from wet_users WHERE username ilike '%$Type%' order by uid desc LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
 		$query = $this->db->query($sql);
 		if ($query->num_rows() > 0){
 				foreach ($query->result() as $row){
@@ -120,14 +120,18 @@ class Searchs extends CI_Model {
 					}else{
 						$todata['portrait'] =  htmlentities($portrait_sc);
 					}
+					$atodata[] = $todata;//返回内容
 				}
 			}else{
-
+				$todata['UserId'] = "null";
+				$todata['UserId_show'] = "null";
+				$todata['active'] = "0";
+				$todata['uactive'] = "0";
 				$todata['username']= "匿名";
 				$todata['portrait'] = "/assets/images/avatars/null.jpg";
+				$atodata[] = $todata;//返回内容
 			}
-		$atodata[] = $todata;//返回内容
-        $data = json_encode($atodata);
+		$data = json_encode($atodata);
         return $data;
     }
 }
