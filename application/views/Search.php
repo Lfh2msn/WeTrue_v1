@@ -4,7 +4,7 @@
                             <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
 							    <li class="nav-item">
 							        <a class="nav-link active" href="javascript:void(0);" onclick="return set_durl('conn');">
-							            <span><n i18n="Search">搜索<n i18n="Content">主帖</n></span>
+							            <span><n i18n="Search">搜索</n><n i18n="Content">主帖</n></span>
 							        </a>
 							    </li>
 							    <li class="nav-item">
@@ -79,7 +79,7 @@ function get_content(dstr){
 	            str +=  `<div class="card mb-2">
 	                        <div class="card-body">
 	                            <?php $this->load->view('SeeMore/Top_Js');?>
-	                                <a href="${Follow_Types!="Content"?"/Comment/":"/Content/"}Tx/${item[i].hash}">
+	                                <a href="/${Follow_Types!="Content"?"Comment":"Content"}/Tx/${item[i].hash}">
 	                                    <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:125px;" readonly>${item[i].payload}</textarea>
 	                                </a>
 	                            ${item[i].imgtx!=""?addImg:""}
