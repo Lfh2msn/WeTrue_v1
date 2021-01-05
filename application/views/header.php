@@ -53,12 +53,11 @@
             <div class="app-header-left">
                 <div class="search-wrapper">
                     <div class="input-holder">
-                        <input type="text" class="search-input" placeholder="Type to search">
-                        <button class="search-icon"><span></span></button>
+						<input type="text" id="suid" class="search-input" placeholder="Content, Comment, UserName..." onkeydown="keyup_submittop(event);" target="_blank">
+						<button type="submit" class="search-icon" target="_blank"><span></span></button>
                     </div>
                     <button class="close"></button>
                 </div>
-
 			</div>
             <div class="app-header-right">
                 <div class="header-dots">
