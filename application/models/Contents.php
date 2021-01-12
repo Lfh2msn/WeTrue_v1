@@ -37,11 +37,10 @@ class Contents extends CI_Model {
             $sender_id = $row->sender_id;
             $todata['sender_id'] = $sender_id;
             $todata['sender_id_show'] = substr($sender_id,-5);
-            $inpayload = $row->payload;
-
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
+				$inpayload = $row->payload;
                 $mbpayload = mb_substr($inpayload,0,80);
                 $todata['payload'] = html_entity_decode($mbpayload);
                 $paylen = mb_strlen($mbpayload,'UTF8');
@@ -98,13 +97,11 @@ class Contents extends CI_Model {
             $sender_id = $row->sender_id;
             $data['sender_id'] = $sender_id;
             $data['sender_id_show'] = substr($sender_id,-5);
-
-            $inpayload = $row->payload;
-            $imgtx = $row->imgtx;
-
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
+				$inpayload = $row->payload;
+				$imgtx = $row->imgtx;
                 $data['payload']   = html_entity_decode($inpayload);
                 if($imgtx!=""){
                     $data['imgtx'] = '<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/'.$imgtx.'"></div>';
@@ -149,13 +146,11 @@ class Contents extends CI_Model {
             $sender_id = $row->sender_id;
             $data['sender_id'] = $sender_id;
             $data['sender_id_show'] = substr($sender_id,-5);
-
-            $inpayload = $row->payload;
-            $imgtx = $row->imgtx;
-
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
+				$inpayload = $row->payload;
+				$imgtx = $row->imgtx;
                 $data['to_hash'] = '<li class="col-md-2 list-group-item-info list-group-item small">To:<a href="/Content/Tx/'.$row->to_hash.'">'.substr($row->to_hash,0,9).'****'.substr($row->to_hash,-14).'</a></li>';
                 $data['payload']   = html_entity_decode($inpayload);
                 $data['imgtx'] = "";

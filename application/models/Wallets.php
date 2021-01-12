@@ -43,11 +43,10 @@ class Wallets extends CI_Model {
                 $sender_id = $row->sender_id;
                 $todata['sender_id'] = $sender_id;
                 $todata['sender_id_show'] = substr($sender_id,-5);
-                $inpayload = $row->payload;
-                
                 $this->load->model('Judge');
                 $Judge_Hash = $this->Judge->TxBloom($hash);
                 if($Judge_Hash=="ok"){
+					$inpayload = $row->payload;
                     $mbpayload = mb_substr($inpayload,0,80);
                     $todata['payload'] = html_entity_decode($mbpayload);
                     $paylen = mb_strlen($mbpayload,'UTF8');

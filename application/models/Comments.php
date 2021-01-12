@@ -31,10 +31,10 @@ class Comments extends CI_Model {
             $todata['sender_id'] = $sender_id;
             $todata['sender_id_show'] = substr($sender_id,-5);
             $rp_hash = $row->hash;
-            $inpayload = $row->payload;
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($rp_hash);
             if($Judge_Hash=="ok"){
+				$inpayload = $row->payload;
                 $todata['payload']   = html_entity_decode($inpayload);
             }else{
                 $todata['payload']   = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
