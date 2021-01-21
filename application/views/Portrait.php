@@ -50,7 +50,7 @@
 
 
 <?php $this->load->view('footer_inside');?>
-<?php $this->load->view('footer');?>
+<?php $this->load->view('footer_SDK');?>
 
 <script language="javascript">
     //初始化

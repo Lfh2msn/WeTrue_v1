@@ -51,7 +51,7 @@
 </div>
 
 <?php $this->load->view('footer_inside');?>
-<?php $this->load->view('footer');?>
+<?php $this->load->view('footer_SDK');?>
 
 <script type="text/javascript">
 	//先将提示展示出来

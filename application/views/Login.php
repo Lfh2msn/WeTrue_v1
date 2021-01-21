@@ -10,20 +10,20 @@
                                 <div class="modal-body">
                                     <div class="h5 modal-title text-center">
                                         <h4 class="mt-2">
-                                            <div><n i18n="WeTrue">[0]</n> <n i18n="login">[0]</n></div>
+                                            <div><n i18n="WeTrue">请稍后</n> <n i18n="login">...</n></div>
                                         </h4>
                                     </div>
                                     <form class="">
                                         <div class="form-row">
                                             <div class="col-md-12">
-                                                <span id="words_digit" i18n="ImportCreate">[0]</span>
+                                                <span id="words_digit" i18n="ImportCreate">Loading SDK...</span>
                                                 <div class="position-relative form-group">
                                                     <textarea class="form-control alert alert-info show text_BandFrame" rows="3" style="background-color:white;" id="words"  placeholder="one two three four..." onkeyup="value=value.replace(/[^A-Za-z ]/g,'')" AUTOCOMPLETE="off"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
-                                                <span id="pwd_digit" i18n="Setpassword">[0]</span>
+                                                <span id="pwd_digit" i18n="Setpassword">...</span>
                                                 <div class="position-relative form-group">
                                                 <input name="password" id="examplePassword" placeholder="Password..." type="text" class="form-control" 
                                                 maxlength="20" autocomplete="off" onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" onfocus="this.type=password"></div>
@@ -31,22 +31,22 @@
                                         </div>
                                     </form>
                                     <div class="divider"></div>
-                                    <h6 class="mb-0"><a href="/Create" class="text-primary"><n i18n="Create">[0]</n><n i18n="Mnemonic">[1]</n></a></h6>
+                                    <h6 class="mb-0"><a href="/Create" class="text-primary"><n i18n="Create">生成</n><n i18n="Mnemonic">助记词</n></a></h6>
                                 </div>
                                 <div class="modal-footer clearfix">
                                     <div class="float-right">
-                                        <button class="btn btn-primary btn-lg" onclick="return pwd_check();" i18n="login">[0]</button>
+                                        <button class="btn btn-primary btn-lg" onclick="return pwd_check();" i18n="login">请稍后</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center text-white opacity-8 mt-3">Copyright © WeTrue 2020</div>
+                        <div class="text-center text-white opacity-8 mt-3">Copyright © WeTrue</div>
                     </div>
                 </div>
             </div>
         </div>
 </div>
-<?php $this->load->view('footer'); ?>
+<?php $this->load->view('footer_SDK'); ?>
 
 <script type="text/javascript">
 function pwd_check(){

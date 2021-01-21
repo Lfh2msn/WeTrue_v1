@@ -46,4 +46,4 @@ function pwd_check(){
 }
 </script>
 <?php $this->load->view('footer_inside');?>
-<?php $this->load->view('footer'); ?>
+<?php $this->load->view('footer_SDK'); ?>

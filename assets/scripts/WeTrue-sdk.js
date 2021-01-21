@@ -50,26 +50,26 @@ if (publicKey!="" && publicKey!=null && publicKey!='undefined'){
 }
 
 async function publicKeyToBalance(publicKey) {
-    const node = await Ae.Node({ url: toSendNode});
-    const client = await Ae.Wallet({
-        nodes: [{ name: "WeTrue", instance: node }]
-    });
-    try{
-        const balanceNumber = await client.balance(publicKey);
-        const balanceS = balanceDC(balanceNumber);
-            if(balanceS <= 0.001){
-                dget("sendAePost").innerHTML = "AE不足";
-                dget('sendAePost').disabled ='disabled';
-                dget('sendAePost').class = "btn-shadow btn btn-secondary";
-            }
-        dget("balance").innerHTML = balanceS + " AE";
-    }catch(err){
-        dget("balance").innerHTML = "无链上记录";
-        dget("sendAePost").innerHTML = "AE不足";
-        dget('sendAePost').disabled ='disabled';
-        dget('sendAePost').class = "btn-shadow btn btn-secondary";
-        
-    }
+	const NodeUrl = toSendNode+'v2/accounts/'+publicKey;
+	$.get(NodeUrl,function(data){
+		const balance = data.balance;
+		try{
+			const balances = balanceDC(balance);
+				if(balances <= 0.001){
+					dget("sendAePost").innerHTML = "AE不足";
+					dget('sendAePost').disabled ='disabled';
+					dget('sendAePost').class = "btn-shadow btn btn-secondary";
+				}
+			dget("balance").innerHTML = balances + " AE";
+		}catch(err){
+			dget("balance").innerHTML = "无链上记录";
+			dget("sendAePost").innerHTML = "AE不足";
+			dget('sendAePost').disabled ='disabled';
+			dget('sendAePost').class = "btn-shadow btn btn-secondary";
+			
+		}
+	});
+    
 }
 
 async function sendAeTch(password, payload,Effect){
