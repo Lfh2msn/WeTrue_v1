@@ -6,11 +6,11 @@ class WeTrueConfig extends CI_Model {
     //资料设置
     public function WETConfig(){
 
-        $data['WeTrue'] = "1.0.0"; //版本号
-        $data['toConAmount'] = "0"; //发帖金额 1e17 = 0.1ae
-        $data['toComAmount'] = "0"; //评论金额 1e16 = 0.01ae
-        $data['toNameAmount'] = "0"; //昵称金额 5e18 = 5ae
-        $data['toPortraitAmount'] = "0"; //头像金额 3e18 = 3ae
+        $data['WeTrue'] = "1.0.1"; //版本号
+        $data['toConAmount'] = "1e14"; //发帖金额 1e17 = 0.1ae
+        $data['toComAmount'] = "1e14"; //评论金额 1e16 = 0.01ae
+        $data['toNameAmount'] = "1e14"; //昵称金额 5e18 = 5ae
+        $data['toPortraitAmount'] = "1e14"; //头像金额 3e18 = 3ae
         $data['toRecid'] = "ak_dMyzpooJ4oGnBVX35SCvHspJrq55HAAupCwPQTDZmRDT5SSSW"; //接收账户
         $data['toSendNode'] = PUBLIC_NODE; //发送及金额查询节点
         //AE价格获取
