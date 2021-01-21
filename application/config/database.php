@@ -76,10 +76,10 @@ $query_builder = TRUE;
 
 $db['postgres'] = array(
     'dsn'   => '',
-    'hostname' => '10.0.0.1',
+    'hostname' => 'localhost',
     'username' => 'postgres',
-    'password' => '',
-    'database' => '',
+    'password' => 'postgres',
+    'database' => 'wetrue',
     'dbdriver' => 'postgre',
     'dbprefix' => '',
     'pconnect' => FALSE,
@@ -94,5 +94,5 @@ $db['postgres'] = array(
     'stricton' => FALSE,
     'failover' => array(),
     'save_queries' => TRUE,
-    'port' => 5432
+    'port' => 55432
 );

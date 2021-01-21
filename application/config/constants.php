@@ -84,8 +84,7 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-
-defined('AECHINA_NODE')          OR define('AECHINA_NODE', 'https://node.aechina.io/'); 
-defined('PUBLIC_NODE')			 OR define('PUBLIC_NODE', 'https://node.aeasy.io/');
+defined('PUBLIC_NODE')			 OR define('PUBLIC_NODE', 'https://nodets.aechina.io/');//前端
+defined('AECHINA_NODE')          OR define('AECHINA_NODE', 'https://nodets.aechina.io/');//后端
 defined('MDW_API')				 OR define('MDW_API', 'https://mainnet.aeternal.io/');
 defined('AEKNOW_NODE')			 OR define('AEKNOW_NODE', 'https://www.aeknow.org/');
