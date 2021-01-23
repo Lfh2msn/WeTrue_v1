@@ -15,32 +15,55 @@
                         </div>
                     </div>
 
-                    	<div class="container">
-                            <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
+                    	<div class="tabs-lg-alternate card-header">
+                            <ul class="nav nav-justified">
 							    <li class="nav-item">
 							        <a class="nav-link active" href="javascript:void(0);" onclick="return set_durl('conn');">
-							            <span i18n="Content">主帖</span>
+										<div class="widget-number"><span i18n="Content">主帖</span></div>
+                                        <div class="tab-subheading">
+                                            <span class="pr-2 opactiy-6">
+                                                <i class="fa fa-comment-dots"></i>
+                                            </span>
+                                            Content
+                                        </div>
 							        </a>
 							    </li>
 							    <li class="nav-item">
 							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('comm');">
-							            <span i18n="Comment">评论</span>
+										<div class="widget-number"><span i18n="Comment">评论</span></div>
+                                        <div class="tab-subheading">
+                                            <span class="pr-2 opactiy-6">
+                                                <i class="fa fa-comment-dots"></i>
+                                            </span>
+                                            Comment
+                                        </div>
 							        </a>
 							    </li>
 							    <li class="nav-item">
 							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wing');">
-							            <span i18n="Following">关注</span>
+										<div class="widget-number"><span i18n="Following">关注</span></div>
+                                        <div class="tab-subheading">
+                                            <span class="pr-2 opactiy-6">
+                                                <i class="pe-7s-like"></i>
+                                            </span>
+                                            Following
+                                        </div>
 							        </a>
 							    </li>
 							    <li class="nav-item">
 							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wers');">
-							            <span i18n="Followers">被关注</span>
+										<div class="widget-number"><span i18n="Followers">被关注</span></div>
+                                        <div class="tab-subheading">
+                                            <span class="pr-2 opactiy-6">
+                                                <i class="fa fa-heartbeat"></i>
+                                            </span>
+                                            Followers
+                                        </div>
 							        </a>
 							    </li>
 							</ul>
                         </div>
 
-  
 <?php $this->load->view('List_box');?>
 <?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer');?>
