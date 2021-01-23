@@ -8,7 +8,7 @@
             </div>
             <?php $this->load->view('SeeMore/Php_Conn');?>
     </div>
-    <div class="card mb-3">
+    <div class="card mb-1">
         <button class="card-body btn btn-dashed btn-outline-focus disabled" i18n="LatestReply">最新评论</button>
         <?php $this->load->view('List_box');?>
     </div>

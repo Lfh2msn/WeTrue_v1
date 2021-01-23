@@ -3,13 +3,13 @@
         <div class="card mb-3">
             <div class="card-body">
                 <?php $this->load->view('SeeMore/Top_php');?>
-                <?php echo $to_hash;?>
                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" readonly><?php echo $payload;?>&#13;</textarea>
+				<?php echo $to_hash;?>
             </div>
             <?php $this->load->view('SeeMore/Php_Comm');?>
         </div>
 
-    <div class="card mb-3">
+    <div class="card mb-1">
         <button class="card-body btn btn-dashed btn-outline-focus disabled" i18n="LatestReply">最新评论</button>
         <?php $this->load->view('List_box');?>
     </div>

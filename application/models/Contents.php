@@ -151,7 +151,7 @@ class Contents extends CI_Model {
             if($Judge_Hash=="ok"){
 				$inpayload = $row->payload;
 				$imgtx = $row->imgtx;
-                $data['to_hash'] = '<li class="col-md-2 list-group-item-info list-group-item small">To:<a href="/Content/Tx/'.$row->to_hash.'">'.substr($row->to_hash,0,9).'****'.substr($row->to_hash,-14).'</a></li>';
+                $data['to_hash'] = 'Reply To: <a href="/Content/Tx/'.$row->to_hash.'">'.substr($row->to_hash,0,9).'****'.substr($row->to_hash,-14).'</a>';
                 $data['payload']   = html_entity_decode($inpayload);
                 $data['imgtx'] = "";
             }else{
