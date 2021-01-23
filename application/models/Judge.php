@@ -65,29 +65,29 @@ class Judge extends CI_Model {
     public function GetActiveGrade($num){
     //等级划分
         if($num>="10000"){
-            $Grade = '<button class="badge btn btn-dashed btn-outline-warning disabled mb-0">LV 7</button>';
+            $Grade = '<i class="widget-numbers text-warning">V7</i>';
             return $Grade;
 
         }elseif($num>="5000"){
-            $Grade = '<button class="badge btn btn-dashed btn-outline-alternate disabled mb-0">LV 6</button>';
+            $Grade = '<i class="widget-numbers text-alternate">V6</i>';
             return $Grade;
 
         }elseif ($num>="2000") {
-            $Grade = '<button class="badge btn btn-dashed btn-outline-danger disabled mb-0">LV 5</button>';
+            $Grade = '<i class="widget-numbers text-danger">V5</i>';
             return $Grade;
 
         }elseif ($num>="500") {
-            $Grade = '<button class="badge btn btn-dashed btn-outline-success disabled mb-0">LV 4</button>';
+            $Grade = '<i class="widget-numbers text-success">V4</i>';
             return $Grade;
 
         }elseif ($num>="100") {
-            $Grade = '<button class="badge btn btn-dashed btn-outline-info disabled mb-0">LV 3</button>';
+            $Grade = '<i class="widget-numbers text-info">V3</i>';
             return $Grade;
         }elseif ($num>="50") {
-            $Grade = '<button class="badge btn btn-dashed btn-outline-primary disabled mb-0">LV 2</button>';
+            $Grade = '<i class="widget-numbers text-primary">V2</i>';
             return $Grade;
         }else{
-            $Grade = '<button class="badge btn btn-dashed btn-outline-secondary disabled mb-0">LV 1</button>';
+            $Grade = '<i class="widget-numbers text-secondary">V1</i>';
             return $Grade;
         }
     }

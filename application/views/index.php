@@ -19,7 +19,7 @@ function get_content(){
 	        pageNum = parseInt(item[0].pageNum);
 	        for(i in item){
 	            var addImg =`<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/${item[i].imgtx}"></div>`;
-	            str +=  `<div class="card mb-3">
+	            str +=  `<div class="card mb-2">
 	                        <div class="card-body">
 	                            <?php $this->load->view('SeeMore/Top_Js');?>
 	                                <a href="/Content/Tx/${item[i].hash}">
