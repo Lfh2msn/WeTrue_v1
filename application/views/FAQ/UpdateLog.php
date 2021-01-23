@@ -16,6 +16,10 @@
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
 
+2021-01-24
+更换FontAwesome字体库为4.7.0
+调整个人中心页布局
+
 2021-01-23
 对部分页面排版微调
 

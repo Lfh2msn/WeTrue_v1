@@ -14,57 +14,42 @@
                             </div>
                         </div>
                     </div>
+					<div class="card-header">
+						<ul class="nav nav-justified">
+							<li class="nav-item">
+								<a class="nav-link active" href="javascript:void(0);" onclick="return set_durl('conn');">
+									<i class="d-none d-md-block fa fa-comment-o"></i>
+									<div class="widget-number"><span i18n="Content">主帖</span></div>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="javascript:void(0);" onclick="return set_durl('comm');">
+									<i class="d-none d-md-block fa fa-comments-o"></i>
+									<div class="widget-number"><span i18n="Comment">评论</span></div>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wing');">
+									<i class="d-none d-md-block fa fa-user"></i>
+									<div class="widget-number"><span i18n="Following">关注</span></div>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wers');">
+									<i class="d-none d-md-block fa fa-users"></i>
+									<div class="widget-number"><span i18n="Followers">被关注</span></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="main-card mb-3 card">
+						<div class="card-body">
+							<div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
+							<?php $this->load->view('List_box');?>
+					</div>
+				</div>
+			</div>
 
-                    	<div class="tabs-lg-alternate card-header">
-                            <ul class="nav nav-justified">
-							    <li class="nav-item">
-							        <a class="nav-link active" href="javascript:void(0);" onclick="return set_durl('conn');">
-										<div class="widget-number"><span i18n="Content">主帖</span></div>
-                                        <div class="tab-subheading">
-                                            <span class="pr-2 opactiy-6">
-                                                <i class="fa fa-comment-dots"></i>
-                                            </span>
-                                            Content
-                                        </div>
-							        </a>
-							    </li>
-							    <li class="nav-item">
-							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('comm');">
-										<div class="widget-number"><span i18n="Comment">评论</span></div>
-                                        <div class="tab-subheading">
-                                            <span class="pr-2 opactiy-6">
-                                                <i class="fa fa-comment-dots"></i>
-                                            </span>
-                                            Comment
-                                        </div>
-							        </a>
-							    </li>
-							    <li class="nav-item">
-							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wing');">
-										<div class="widget-number"><span i18n="Following">关注</span></div>
-                                        <div class="tab-subheading">
-                                            <span class="pr-2 opactiy-6">
-                                                <i class="pe-7s-like"></i>
-                                            </span>
-                                            Following
-                                        </div>
-							        </a>
-							    </li>
-							    <li class="nav-item">
-							        <a class="nav-link" href="javascript:void(0);" onclick="return set_durl('wers');">
-										<div class="widget-number"><span i18n="Followers">被关注</span></div>
-                                        <div class="tab-subheading">
-                                            <span class="pr-2 opactiy-6">
-                                                <i class="fa fa-heartbeat"></i>
-                                            </span>
-                                            Followers
-                                        </div>
-							        </a>
-							    </li>
-							</ul>
-                        </div>
-
-<?php $this->load->view('List_box');?>
 <?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer');?>
         </div>
@@ -154,16 +139,18 @@ function get_content(dstr){
         
             for(i in item){
                 var addImg =`<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/${item[i].imgtx}"></div>`;
-                str += `<div class="card mb-2">
-                            <div class="text-muted ml-3 pt-2">${stampToTime(item[i].utctime)}</div>
-                                <div class="ml-4 pt-1">
-                                <a href="/${ConnDoComm}/Tx/${item[i].hash}">
-                                <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:125px;" readonly>${item[i].payload}</textarea>
-                                </a>
-                                ${item[i].imgtx!=""?addImg:""}
-                                </div>
-                            <?php $this->load->view('SeeMore/Js_Conn');?>
-                        </div>`;
+                str += `<div class="vertical-timeline-item vertical-timeline-element dot-primary">
+						<div>
+							<span class="vertical-timeline-element-icon bounce-in"></span>
+							<div class="vertical-timeline-element-content bounce-in">
+							<h4 class="timeline-title">${stampToTime(item[i].utctime)}</h4>
+							<a href="/${ConnDoComm}/Tx/${item[i].hash}">
+							<textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:125px;" readonly>${item[i].payload}</textarea>
+                            </a>
+                            ${item[i].imgtx!=""?addImg:""}
+							</div>
+						</div>
+					</div>`;
             }
         }else{
         		str = `<div class="row">

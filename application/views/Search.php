@@ -1,7 +1,7 @@
 				<div class="app-main__inner">
                     
-                    	<div class="container">
-                            <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-rounded-lg">
+                    	<div class="card-header">
+							<ul class="nav nav-justified">
 							    <li class="nav-item">
 							        <a class="nav-link active" href="javascript:void(0);" onclick="return set_durl('conn');">
 							            <span><n i18n="Search">搜索</n><n i18n="Content">主帖</n></span>
