@@ -16,6 +16,9 @@
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
 
+2021-01-23
+对部分页面排版微调
+
 2021-01-21 --> 1.0.0
 -新增footer_SDK页面
 -修改WeTter SDK获取AE余额方式
