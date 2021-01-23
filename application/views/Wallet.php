@@ -42,14 +42,8 @@
 							</li>
 						</ul>
 					</div>
-					<div class="main-card mb-3 card">
-						<div class="card-body">
-							<div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">
-							<?php $this->load->view('List_box');?>
-					</div>
-				</div>
-			</div>
-
+					
+<?php $this->load->view('List_box');?>
 <?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer');?>
         </div>
@@ -136,7 +130,7 @@ function get_content(dstr){
                                         <button type="button" data-clipboard-target="#User_WalletID" class="btn-shadow btn-pill btn-wide btn btn-outline-alternate ml-3" i18n="Copy">复制</button>
     								</div>
                                 </div>`;
-        
+			str +=`<div class="main-card mb-3 card"><div class="card-body"><div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column">`
             for(i in item){
                 var addImg =`<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/${item[i].imgtx}"></div>`;
                 str += `<div class="vertical-timeline-item vertical-timeline-element dot-primary">
@@ -152,6 +146,7 @@ function get_content(dstr){
 						</div>
 					</div>`;
             }
+			str +=`</div></div></div>`
         }else{
         		str = `<div class="row">
                     <div class="col-md-12">
