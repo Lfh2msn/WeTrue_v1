@@ -1,12 +1,11 @@
 <div class="card-footer d-flex flex-wrap justify-content-between px-0 pt-0 pb-0">
-    <div class="px-4 pt-0">
+	<div class="px-4 pt-0">
         <span class="text-muted d-inline-flex align-items-center align-middle">
-        <i class="CommentLove metismenu-icon pe-7s-like pe-2x pe-va" id="<?php echo $txhash;?>"><span style="font-size:15px"><?php echo $love;?></span></i>
+            <i class="CommentLove metismenu-icon far fa-heart" id="<?php echo $txhash;?>">&nbsp;<?php echo $love;?></i>
         </span>
         <span class="text-muted d-inline-flex align-items-center align-middle ml-5">
             <a href="/Comment/Post/<?php echo $txhash;?>" class="text-muted d-inline-flex align-items-center align-middle" id="logoutcommsum">
-            <i class="metismenu-icon pe-7s-comment pe-2x pe-va"></i>&nbsp;
-            <span class="align-middle"><?php echo $commsum;?></span>
+            <i class="far fa-comments">&nbsp;<?php echo $commsum;?></i>
         </span></a>
     </div>
     <div class="px-4 pt-1">

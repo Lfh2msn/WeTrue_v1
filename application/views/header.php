@@ -13,7 +13,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 <link rel="icon" href="/assets/images/favicon.ico">
-<link rel="stylesheet" href="/main.css">
+<link rel="stylesheet" href="/main.css?v=1.0.3">
 <link rel="stylesheet" href="/assets/css/WET.css?v=<?php echo $WeTrue?>">
 </head>
 <body>
@@ -67,7 +67,7 @@
                         <button type="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" class="p-0 mr-2 btn btn-link dd-chart-btn">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                 <span class="icon-wrapper-bg bg-success"></span>
-                                <i class="icon text-success pe-7s-graph2"></i>
+                                <i class="icon text-success fa fa-chart-line"></i>
                             </span>
                         </button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
@@ -237,14 +237,12 @@
                                         <div class="scroll-area-xs" style="height: 50px;">
                                             <div class="scrollbar-container ps">
                                                 <ul class="nav flex-column">
-                                                    
                                                     <li class="nav-item">
                                                         <a href="javascript:void(0);" class="nav-link"><n i18n="balance">当前余额</n>
                                                             <div class="ml-auto badge badge-pill badge-info" id="balance">0.00000 AE
                                                             </div>
                                                         </a>
                                                     </li>
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -254,16 +252,10 @@
                                         </ul>
                                         <div class="grid-menu grid-menu-2col">
                                             <div class="no-gutters row">
-                                                <div class="col-sm-6">
-                                                    <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
-                                                        <i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2"></i>
-                                                        Message Inbox
-                                                    </button>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger">
-                                                        <i class="pe-7s-ticket icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i>
-                                                        <b>Reserve</b>
+                                                <div class="col-sm-12" style="display:none" id="NewUserActivity">
+                                                    <button class="AskForAE btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger">
+                                                        <i class="fa fa-american-sign-language-interpreting icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i>
+                                                        <b><n i18n="AskFor">索取</n> AE</b>
                                                     </button>
                                                 </div>
                                             </div>

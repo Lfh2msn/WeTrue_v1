@@ -6,7 +6,7 @@ class WeTrueConfig extends CI_Model {
     //资料设置
     public function WETConfig(){
 
-        $data['WeTrue'] = "1.0.1"; //版本号
+        $data['WeTrue'] = "1.0.3"; //版本号
         $data['toConAmount'] = "1e14"; //发帖金额 1e17 = 0.1ae
         $data['toComAmount'] = "1e14"; //评论金额 1e16 = 0.01ae
         $data['toNameAmount'] = "1e14"; //昵称金额 5e18 = 5ae

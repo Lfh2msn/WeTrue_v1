@@ -35,9 +35,9 @@
                             <li class="app-sidebar__heading"><span i18n="based">基于</span> Aeternity</li>
                             <li class="mm-active">
                                 <a href="#">
-                                    <i class="metismenu-icon pe-7s-bookmarks"></i>
+                                    <i class="metismenu-icon fas fa-fingerprint"></i>
                                     <span i18n="WeTrue">微触</span>
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    <i class="metismenu-state-icon fas fa-angle-down"></i>
                                 </a>
                                 <ul class="mm-show">
                                     <li>
@@ -71,30 +71,30 @@
                             <li class="app-sidebar__heading" i18n="Partners">合作伙伴</li>
                             <li>
                                 <a href="https://www.aechina.io" target="_blank" rel="noopener noreferrer">
-                                    <i class="metismenu-icon pe-7s-radio"></i>AEChina
+                                    <i class="metismenu-icon fab fa-elementor"></i>AEChina
                                 </a>
                             </li>
                             <li>
                                 <a href="http://coolriver.github.io/blog/pages/openerTest/target.html" target="_blank" rel="noopener noreferrer">
-                                    <i class="metismenu-icon pe-7s-shopbag"></i>Aepps
+                                    <i class="metismenu-icon fas fa-cubes"></i>Aepps
                                 </a>
                             </li>
                             <li>
                                 <a href="https://aeknow.org/" target="_blank" rel="noopener noreferrer">
-                                    <i class="metismenu-icon pe-7s-compass"></i>AEKnow
+                                    <i class="metismenu-icon fas fa-globe-asia"></i>AEKnow
                                 </a>
                             </li>
                             <li>
                                 <a href="http://aeasy.io/" target="_blank" rel="noopener noreferrer">
-                                    <i class="metismenu-icon pe-7s-tools"></i>AEasy
+                                    <i class="metismenu-icon fab fa-codepen"></i>AEasy
                                 </a>
                             </li>
                             <li class="app-sidebar__heading" i18n="Help">帮助及介绍</li>
                             <li>
                                 <a href="#">
-                                    <i class="metismenu-icon pe-7s-help1"></i>
+                                    <i class="metismenu-icon fas fa-assistive-listening-systems"></i>
                                     <n i18n="FAQ">使用问答</n>
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    <i class="metismenu-state-icon fas fa-angle-down"></i>
                                 </a>
                                 <ul >
                                     <li>
@@ -123,7 +123,7 @@
                                     </li>
                                     <li>
                                         <a href="/faq/cost">
-                                        <i class="metismenu-icon pe-7s-paper-plane"></i>
+                                        <i class="metismenu-icon"></i>
                                         <n i18n="Charge">为何收费及如何收费</n>
                                         </a>
                                     </li>
@@ -131,13 +131,13 @@
                             </li>
                             <li>
                                 <a href="/faq/UpdateLog">
-                                    <i class="metismenu-icon pe-7s-note2"></i>
+                                    <i class="metismenu-icon fas fa-plane"></i>
                                     <n i18n="UpdateLog">更新日志</n>
                                 </a>
                             </li>
                             <li>
                                 <a href="/faq/AlmostReadyToGo">
-                                    <i class="metismenu-icon pe-7s-plane">
+                                    <i class="metismenu-icon fas fa-plane-departure">
                                     </i>WeTrue To Go
                                 </a>
                             </li>

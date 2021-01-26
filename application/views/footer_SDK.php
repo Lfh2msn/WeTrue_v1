@@ -8,6 +8,6 @@
 	<script type="text/javascript" src="/assets/scripts/main.js?v=1.0.1"></script>
 	<script type="text/javascript" src="/assets/scripts/script.js?v=0.5.3"></script>
     <script src="/assets/scripts/WeTrue-sdk.js?v=<?php echo $WeTrue?>"></script>
-    <script src="/assets/scripts/wet-img.js?v=<?php echo $WeTrue?>"></script>
+    <script src="/assets/scripts/wet-img.js?v=1.0.1"></script>
 </body>
 </html>

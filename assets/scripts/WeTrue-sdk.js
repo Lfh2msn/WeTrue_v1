@@ -51,25 +51,24 @@ if (publicKey!="" && publicKey!=null && publicKey!='undefined'){
 
 async function publicKeyToBalance(publicKey) {
 	const NodeUrl = toSendNode+'v2/accounts/'+publicKey;
-	$.get(NodeUrl,function(data){
-		const balance = data.balance;
-		try{
-			const balances = balanceDC(balance);
-				if(balances <= 0.001){
-					dget("sendAePost").innerHTML = "AE不足";
-					dget('sendAePost').disabled ='disabled';
-					dget('sendAePost').class = "btn-shadow btn btn-secondary";
-				}
-			dget("balance").innerHTML = balances + " AE";
-		}catch(err){
-			dget("balance").innerHTML = "无链上记录";
-			dget("sendAePost").innerHTML = "AE不足";
-			dget('sendAePost').disabled ='disabled';
-			dget('sendAePost').class = "btn-shadow btn btn-secondary";
-			
-		}
+	const AeBalance = $.get(NodeUrl, BalanceCallBack);
+	AeBalance.fail(function(xhr, error, throwerror) {
+		dget("balance").innerHTML = "New Account";
+		dget("NewUserActivity").style.display="block";
+		dget('sendAePost').innerHTML = "AE不足";
+		dget('sendAePost').disabled ="disabled";
+		dget('sendAePost').class = "btn-shadow btn btn-secondary";
 	});
-    
+    function BalanceCallBack(data, status) {
+		const balance = data.balance;
+		const balances = balanceDC(balance);
+		if(balances <= 0.001){
+			dget('sendAePost').innerHTML = "AE不足";
+			dget('sendAePost').disabled ="disabled";
+			dget('sendAePost').class = "btn-shadow btn btn-secondary";
+		}
+		dget("balance").innerHTML = balances + " AE";
+	}
 }
 
 async function sendAeTch(password, payload,Effect){
@@ -409,8 +408,7 @@ $(document).on("click",".CommentLove",function(){
 });
 
 $(document).on("click",".report",function(){
-    const lols = window.localStorage;
-    const informant = lols["publicKey"];
+    const informant = publicKey;
     const report = $(this);
     const rp_sender_id = report.attr("id");
     const rp_hash = report.attr("hash");
@@ -562,3 +560,28 @@ function keyup_submittop(e){
 		window.open('/Search/KeyWord/'+suid);
 	}
 }
+
+$(document).on("click",".AskForAE",function(){
+    const sender_id = publicKey;
+	const clickAsk = $(this);
+	clickAsk.fadeOut(300);
+	$.toast("索要中...",5);
+    $.ajax({
+        type:"POST",
+        url:"/Wallet/NewUserActivity/",
+        data:{sender_id},
+        cache:false,
+        success:function(data){
+			$.removetoast();
+            $.toast(data,1);
+			dget("NewUserActivity").style.display = "none";
+			publicKeyToBalance(publicKey);
+        },
+		error:function(){
+			clickAsk.fadeIn(300);
+			$.toast("出错了，请重试",1);
+			publicKeyToBalance(publicKey);
+		}
+    });
+    return false;
+});

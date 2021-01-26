@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Wallet extends CI_Controller {
 
-	
 	public function ID($ak=""){
 	//用户中心首页
 		if(strpos($ak,"ak_")!== false){
@@ -109,4 +108,14 @@ class Wallet extends CI_Controller {
             echo "NULL";
         }
     }
+
+	public function NewUserActivity(){
+    //新用户领AE活动
+        $sendid_id = $this->input->get_post('sender_id');
+        $this->load->model('Judge');
+        $Jsendid_id = $this->Judge->hashAndID($sendid_id);
+		$data = $this->Judge->NewUserActive($Jsendid_id);
+		echo $data;
+    }
+
 }

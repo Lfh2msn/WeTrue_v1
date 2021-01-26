@@ -129,7 +129,7 @@ class Judge extends CI_Model {
 
 	public function NewUserActive($sendid_id){
     //查询账户链上记录是否为空
-        $url = PUBLIC_NODE.'v2/accounts/'.$sendid_id;
+        $url = AEASY_NODE.'v2/accounts/'.$sendid_id;
         //读取节点查询账户
         @$GetUrl = file_get_contents($url);
         //过滤链上记录
