@@ -62,14 +62,18 @@ class Contents extends CI_Model {
             if ($query->num_rows() > 0){
                 $row = $query->row(); 
                 $username_sc = $row->username;
-                $todata['username'] =  htmlentities($username_sc);
+				if($username_sc==''){
+                    $todata['username'] = "Null";
+                }else{
+                    $todata['username'] = htmlentities($username_sc);
+                }
                 $uactive_sc = $row->uactive;
                 $todata['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
                $portrait_sc = $row->portrait;
                if($portrait_sc==''){
                     $todata['portrait'] = "/assets/images/avatars/null.jpg";
                 }else{
-                    $todata['portrait'] =  htmlentities($portrait_sc);
+                    $todata['portrait'] = htmlentities($portrait_sc);
                 }
 
             }else{
@@ -123,7 +127,11 @@ class Contents extends CI_Model {
 
                     $row = $query->row(); 
                     $username_sc = $row->username;
-                    $data['username'] =  htmlentities($username_sc);
+                    if($username_sc==''){
+						$data['username'] = "Null";
+					}else{
+						$data['username'] = htmlentities($username_sc);
+					}
                     $portrait_sc = $row->portrait;
                     $uactive_sc = $row->uactive;
                     $data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
@@ -169,7 +177,11 @@ class Contents extends CI_Model {
 
                     $row = $query->row(); 
                     $username_sc = $row->username;
-                    $data['username'] =  htmlentities($username_sc);
+                    if($username_sc==''){
+						$data['username'] = "Null";
+					}else{
+						$data['username'] = htmlentities($username_sc);
+					}
                     $portrait_sc = $row->portrait;
                     $uactive_sc = $row->uactive;
                     $data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);

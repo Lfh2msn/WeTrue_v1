@@ -50,7 +50,11 @@ class Comments extends CI_Model {
 
                     $row = $query->row(); 
                     $username_sc = $row->username;
-                    $todata['username'] =  htmlentities($username_sc);
+                    if($username_sc==''){
+						$todata['username'] = "Null";
+					}else{
+						$todata['username'] = htmlentities($username_sc);
+					}
                     $uactive_sc = $row->uactive;
                     $todata['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
                     $portrait_sc = $row->portrait;
