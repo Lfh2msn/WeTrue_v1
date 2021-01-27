@@ -22,7 +22,6 @@
 
   
 <?php $this->load->view('List_box');?>
-<?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer');?>
         </div>
     </div>

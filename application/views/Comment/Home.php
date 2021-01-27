@@ -16,8 +16,6 @@
         <?php $this->load->view('List_box');?>
     </div>
 
-
-<?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer');?>
 <script>
 var pageNum = 1;
