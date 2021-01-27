@@ -15,6 +15,14 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-01-27
+修改文章头部排版
+修改文章底部排版
+修改最新评论排版
+修改修改屏蔽提示语
+移除底栏按钮
+修改SeeMore文件名
+
 2021-01-26 --> 1.0.3
 去除无用icon库
 更换FontAwesome icon为5.15.2
