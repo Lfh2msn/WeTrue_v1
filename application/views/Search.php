@@ -78,13 +78,13 @@ function get_content(dstr){
                 var addImg =`<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/${item[i].imgtx}"></div>`;
 	            str +=  `<div class="card mb-2">
 	                        <div class="card-body">
-	                            <?php $this->load->view('SeeMore/Top_Js');?>
+	                            <?php $this->load->view('SeeMore/Js_Content_Top');?>
 	                                <a href="/${Follow_Types!="Content"?"Comment":"Content"}/Tx/${item[i].hash}">
 	                                    <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:125px;" readonly>${item[i].payload}</textarea>
 	                                </a>
 	                            ${item[i].imgtx!=""?addImg:""}
 	                        </div>
-	                    <?php $this->load->view('SeeMore/Js_Conn');?>
+	                    <?php $this->load->view('SeeMore/Js_Content_footer');?>
 	                </div>`;
             }
         }else{

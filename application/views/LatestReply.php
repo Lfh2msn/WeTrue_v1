@@ -1,6 +1,6 @@
- <div class="app-main__inner">
-
-
+<div class="app-main__inner">
+<div class="card mb-1" >
+    <div class="card-body">
 <?php $this->load->view('List_box');?>
 <?php $this->load->view('footer'); ?>
 
@@ -20,15 +20,14 @@ function get_content(){
             max_page = parseInt(item[0].totalPage);
             pageNum = parseInt(item[0].pageNum);
             for(i in item){
-                str +=  `<div class="card mb-1" >
-                        <div class="card-body">
-                            <?php $this->load->view('SeeMore/Top_Js');?>
+                str +=  `<?php $this->load->view('SeeMore/Js_Content_Top');?>
+					<a class="text-muted small" href="/Content/Tx/${item[i].to_hash}">Reply: ${item[i].to_hash.substring(0, 5)+"***"+item[i].to_hash.substr(-5)}</a>
                                     <a href="/Comment/Tx/${item[i].hash}">
                                         <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:110px;" readonly>${item[i].payload}</textarea>
                                     </a>
-									Reply To: <a href="/Content/Tx/${item[i].to_hash}">${item[i].to_hash.substring(0, 9)+"****"+item[i].to_hash.substr(-14)}</a>
+									
                         </div>
-                        	<?php $this->load->view('SeeMore/Js_Comm');?>
+                        	<?php $this->load->view('SeeMore/Js_Comment_footer');?>
                     </div>`;
                 
             }

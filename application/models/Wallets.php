@@ -54,7 +54,7 @@ class Wallets extends CI_Model {
                     $imgtx_sc = $row->imgtx;
                     $todata['imgtx'] =  htmlentities($imgtx_sc);
                 }else{
-                    $todata['payload'] = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
+                    $todata['payload'] = "Details TX_Hash：&#13;{$hash}";
                     $todata['imgtx']   = "";
                 }
                 $todata['utctime'] = $row->utctime;

@@ -37,7 +37,7 @@ class Comments extends CI_Model {
 				$inpayload = $row->payload;
                 $todata['payload']   = html_entity_decode($inpayload);
             }else{
-                $todata['payload']   = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
+                $todata['payload']   = "Details TX_Hash：&#13;{$hash}";
             }
             $todata['utctime'] = $row->utctime;
             $todata['commsum'] = $row->commsum;

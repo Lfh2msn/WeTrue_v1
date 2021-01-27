@@ -48,7 +48,7 @@ class Contents extends CI_Model {
                 $imgtx_sc = $row->imgtx;
                 $todata['imgtx'] =  htmlentities($imgtx_sc);
             }else{
-                $todata['payload'] = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
+                $todata['payload'] = "Details Tx_Hash：&#13;{$hash}";
                 $todata['imgtx']   = "";
             }
 
@@ -113,7 +113,7 @@ class Contents extends CI_Model {
                     $data['imgtx'] = "";
                 }
             }else{
-                $data['payload']   = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
+                $data['payload']   = "Details TX_Hash：&#13;{$hash}";
                 $data['imgtx']   = "";
             }
 
@@ -163,7 +163,7 @@ class Contents extends CI_Model {
                 $data['payload']   = html_entity_decode($inpayload);
                 $data['imgtx'] = "";
             }else{
-                $data['payload']   = "内容某因素不可见，详情TX_Hash：&#13;{$hash}";
+                $data['payload']   = "Details TX_Hash：&#13;{$hash}";
                 $data['imgtx']   = "";
             }
 
