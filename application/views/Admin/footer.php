@@ -1,23 +1,13 @@
     </div>
 	</div>
 </div>
+<div id="WETConfig" WeTrue="<?php echo $WeTrue?>" toConAmount="<?php echo $toConAmount?>" toComAmount="<?php echo $toComAmount?>" toNameAmount = "<?php echo $toNameAmount?>" toRecid = "<?php echo $toRecid?>" toSendNode = "<?php echo $toSendNode?>" toPortraitAmount = "<?php echo $toPortraitAmount?>"></div>
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
-
-<div id="onAddress" class="white_content">
-    <img id="onAddressImg" style="with:140px;" src="">
-<div class="position-relative form-group">
-    <textarea id="onAddressText" rows="1" class="form-control alert alert-info " style="height: 200px;" 
-    onclick="this.select();" readonly="readonly"></textarea>
-    </div>
-
-<a href = "javascript:void(0)" class="btn btn-danger" onclick = "onAddress('off')">关闭</a>
-</div> 
-<div id="onBlackAddress" class="black_overlay"></div>
-    <script type="text/javascript" src="/assets/scripts/F_Tips_C.js?<?php echo $WeTrue?>"></script>
-	<script type="text/javascript" src="/assets/scripts/main.js?<?php echo $WeTrue?>"></script>
-	<script type="text/javascript" src="/assets/scripts/script.js?<?php echo $WeTrue?>"></script>
-    <script src="/assets/scripts/WeTrue-sdk.js?<?php echo $WeTrue?>"></script>
-    <script src="/assets/scripts/wet-img.js?<?php echo $WeTrue?>"></script>
+    <script type="text/javascript" src="/assets/scripts/F_Tips_C.js?v=0.5.2"></script>
+	<script type="text/javascript" src="/assets/scripts/main.js?v=1.0.1"></script>
+	<script type="text/javascript" src="/assets/scripts/script.js?v=0.5.3"></script>
+    <script src="/assets/scripts/WeTrue-sdk.js?v=<?php echo $WeTrue?>"></script>
+    <script src="/assets/scripts/wet-img.js?v=1.0.1"></script>
 </body>
 </html>
 <script>

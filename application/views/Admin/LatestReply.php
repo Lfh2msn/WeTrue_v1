@@ -26,13 +26,13 @@ function get_content(){
         for(i in item){
             str +=  `<div class="card mb-3" >
                     <div class="card-body">
-                        <?php $this->load->view('SeeMore/Top_Js');?>
+                        <?php $this->load->view('SeeMore/Js_Content_Top');?>
                                 <li class="col-md-2 list-group-item-info list-group-item small">To:<a href="/Content/Tx/${item[i].to_hash}">${item[i].to_hash.substring(0, 9)+"****"+item[i].to_hash.substr(-14)}</a></li>
                                 <a href="/Comment/Tx/${item[i].hash}">
                                     <textarea class="form-control-plaintext text_ZeroFrame autosize-input scrollbar-container" style="max-height:110px;" readonly>${item[i].payload}</textarea>
                                 </a>
                     </div>
-                    	<?php $this->load->view('Admin/SeeMore/Js_Comm');?>
+                    	<?php $this->load->view('Admin/SeeMore/Js_Comment_footer');?>
                 </div>`;
             
         }

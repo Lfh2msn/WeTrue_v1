@@ -62,7 +62,6 @@
             <div class="app-header-right">
                 <div class="header-dots">
  
- 
 					<div class="dropdown">
                         <button type="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" class="p-0 mr-2 btn btn-link dd-chart-btn">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -115,7 +114,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+ <!-- 
                     <div class="dropdown">
                         <button type="button" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -155,7 +154,7 @@
                                                                    <span class="vertical-timeline-element-date"></span></div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -165,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-
+ -->
 					<div class="dropdown">
                         <button type="button" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">

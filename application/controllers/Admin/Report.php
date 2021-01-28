@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Report extends CI_Controller {
 
-
 	public function index(){
 	$this->load->model('WeTrueConfig');
 	$Configdata = $this->WeTrueConfig->WETConfig();
@@ -31,7 +30,6 @@ class Report extends CI_Controller {
         }
 	}
 
-
 	//管理员屏蔽
 	public function Admin_Report(){
 		$rp_hash	  = $this->input->get_post('rp_hash');
@@ -42,7 +40,7 @@ class Report extends CI_Controller {
 		$Jsender_id=$this->Judge->hashAndID($rp_sender_id);
 		$Jinformant=$this->Judge->hashAndID($informant);
 		$this->load->model('Admin/AdminConfig');
-		$JudgeID	  = $this->AdminConfig->Manage($Jinformant);
+		$JudgeID = $this->AdminConfig->Manage($Jinformant);
 		if($JudgeID=="ok"){
 			$this->load->model('Admin/A_Report');
 			$this->A_Report->RpTx($Jhash,$Jsender_id,$Jinformant);

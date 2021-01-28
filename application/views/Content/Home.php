@@ -6,7 +6,7 @@
                     <textarea class="form-control-plaintext text_ZeroFrame autosize-input" readonly><?php echo $payload;?></textarea>
                     <?php echo $imgtx;?>
             </div>
-            <?php $this->load->view('SeeMore/Php_Comment_footer');?>
+            <?php $this->load->view('SeeMore/Php_Content_footer');?>
     </div>
     <div class="card mb-1">
         <button class="card-body btn btn-dashed btn-outline-focus disabled" i18n="LatestReply">最新评论</button>

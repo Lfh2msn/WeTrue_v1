@@ -13,12 +13,10 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 <link rel="icon" href="/assets/images/favicon.ico">
-<link rel="stylesheet" href="/main.css">
-<link rel="stylesheet" href="/assets/css/WET.css">
-<script src="https://unpkg.com/@aeternity/aepp-sdk@7.7.0/dist/aepp-sdk.browser-script.js"></script>
+<link rel="stylesheet" href="/main.css?v=1.0.3">
+<link rel="stylesheet" href="/assets/css/WET.css?v=<?php echo $WeTrue?>">
 </head>
 <body>
-<div class="zoom-img"></div>
 <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar fixed-footer">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
@@ -55,22 +53,20 @@
             <div class="app-header-left">
                 <div class="search-wrapper">
                     <div class="input-holder">
-                        <input type="text" class="search-input" placeholder="Type to search">
-                        <button class="search-icon"><span></span></button>
+						<input type="text" id="suid" class="search-input" placeholder="Content, Comment, UserName..." onkeydown="keyup_submittop(event);" target="_blank">
+						<button type="submit" class="search-icon" target="_blank"><span></span></button>
                     </div>
                     <button class="close"></button>
                 </div>
-
 			</div>
             <div class="app-header-right">
                 <div class="header-dots">
- 
  
 					<div class="dropdown">
                         <button type="button" aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" class="p-0 mr-2 btn btn-link dd-chart-btn">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
                                 <span class="icon-wrapper-bg bg-success"></span>
-                                <i class="icon text-success pe-7s-graph2"></i>
+                                <i class="icon text-success fa fa-chart-line"></i>
                             </span>
                         </button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
@@ -118,7 +114,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+ <!-- 
                     <div class="dropdown">
                         <button type="button" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -158,7 +154,7 @@
                                                                    <span class="vertical-timeline-element-date"></span></div>
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-
+ -->
 					<div class="dropdown">
                         <button type="button" data-toggle="dropdown" class="p-0 mr-2 btn btn-link">
                             <span class="icon-wrapper icon-wrapper-alt rounded-circle">
@@ -182,23 +178,12 @@
                             <div class="dropdown-menu-header">
                                 <div class="dropdown-menu-header-inner bg-premium-dark">
                                     <div class="menu-header-content text-white">
-                                        <h6 class="menu-header-subtitle">
-                                            Choose Language
-
-                                        </h6>
+                                        <h6 class="menu-header-subtitle" i18n="chooselanguage">Choose Language</h6>
                                     </div>
                                 </div>
                             </div>
-                           
-							<button type="button" tabindex="0" class="dropdown-item active">
-                                <span class="mr-3 opacity-8 flag large CN"></span>
-                                Chinese
-                            </button>
-                            <button type="button" tabindex="0" class="dropdown-item">
-                                <span class="mr-3 opacity-8 flag large US"></span>
-                                English
-                            </button>
-
+							<button type="button" tabindex="0" class="trans-lang dropdown-item trans-cn" value="简体中文">简体中文</button>
+                            <button type="button" tabindex="0" class="trans-lang dropdown-item trans-en" value="English">English</button>
 
                         </div>
                     </div>
@@ -232,17 +217,15 @@
                                                             <div class="widget-content-left mr-3">
                                                                 <div class="hy-txa">
                                                                 <img width="42" height="42" class="rounded-circle" src="/assets/images/avatars/null.jpg" id="portrait_2">
-                                                                <a href="/Portrait"><span>编辑</span></a>
+                                                                <a href="/Portrait"><span i18n="edit">编辑</span></a>
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-left">
-                                                                <div class="widget-heading" id="ueserName_2">未登录
-                                                                </div>
-                                                                <div class="widget-subheading opacity-8" id="WalletId2"></a>
-                                                                </div>
+                                                                <div class="widget-heading" id="ueserName_2"><n i18n="no">未</n><n i18n="login">登录</n></div>
+                                                                <div class="widget-subheading opacity-8" id="WalletId2"></a></div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
-                                                                <button class="btn-pill btn btn-light" style="display:none;" id="userCenter"><a href="#" id="userCenterurl">个人主页</a></button>
+                                                                <button class="btn-pill btn btn-light" style="display:none;" id="userCenter"><a href="#" id="userCenterurl" i18n="MyHomepage">个人主页</a></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -253,14 +236,12 @@
                                         <div class="scroll-area-xs" style="height: 50px;">
                                             <div class="scrollbar-container ps">
                                                 <ul class="nav flex-column">
-                                                    
                                                     <li class="nav-item">
-                                                        <a href="javascript:void(0);" class="nav-link">当前余额
+                                                        <a href="javascript:void(0);" class="nav-link"><n i18n="balance">当前余额</n>
                                                             <div class="ml-auto badge badge-pill badge-info" id="balance">0.00000 AE
                                                             </div>
                                                         </a>
                                                     </li>
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -270,16 +251,10 @@
                                         </ul>
                                         <div class="grid-menu grid-menu-2col">
                                             <div class="no-gutters row">
-                                                <div class="col-sm-6">
-                                                    <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-warning">
-                                                        <i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2"></i>
-                                                        Message Inbox
-                                                    </button>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger">
-                                                        <i class="pe-7s-ticket icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i>
-                                                        <b>Reserve</b>
+                                                <div class="col-sm-12" style="display:none" id="NewUserActivity">
+                                                    <button class="AskForAE btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outline-danger">
+                                                        <i class="fa fa-american-sign-language-interpreting icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i>
+                                                        <b><n i18n="AskFor">索取</n> AE</b>
                                                     </button>
                                                 </div>
                                             </div>
@@ -289,8 +264,8 @@
                                             <li class="nav-item-divider nav-item">
                                             </li>
                                             <li class="nav-item-btn text-center nav-item">
-                                                <button class="btn btn-focus" id="loginout"><a href="/login" class="btn btn-focus">登录</a></button>
-                                                <button class="btn btn-focus" onclick="LogoutBtn_click()" style="display:none;" id="logout">清除登录</button>
+                                                <button class="btn btn-focus" id="loginout"><a href="/login" class="btn btn-focus" i18n="login">登录</a></button>
+                                                <button class="btn btn-focus" onclick="LogoutBtn_click()" style="display:none;" id="logout" i18n="logout">清除登录</button>
                                             </li>
                                         </ul>
                                     </div>
@@ -299,10 +274,9 @@
 
 
                             <div class="widget-content-left  ml-3 header-user-info">
-                                <div class="widget-heading" id="ueserName_1"><a href="/Login">登录
-                                </div>
+                                <div class="widget-heading" id="ueserName_1"><a href="/Login"><n i18n="login">登录</n></div>
                                 <div class="widget-subheading" id="WalletId1">
-                                点击登录</a>
+                                <n i18n="click">点击</n><n i18n="login">登录</n></a>
                                 </div>
                             </div>
                                     
@@ -318,5 +292,4 @@
                 </div>        </div>
         </div>
     </div>
-    <div id="WETConfig" WeTrue="<?php echo $WeTrue?>" toConAmount="<?php echo $toConAmount?>" toComAmount="<?php echo $toComAmount?>" toNameAmount = "<?php echo $toNameAmount?>" toRecid = "<?php echo $toRecid?>" toSendNode = "<?php echo $toSendNode?>" toPortraitAmount = "<?php echo $toPortraitAmount?>"></div>
 <?php $this->load->view('Admin/Left'); ?>
