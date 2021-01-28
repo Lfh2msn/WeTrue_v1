@@ -45,6 +45,7 @@
 </div>
 
 <?php $this->load->view('footer_SDK');?>
+<?php $this->load->view('footer'); ?>
 
 <script language="javascript">
     //初始化

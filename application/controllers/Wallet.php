@@ -111,11 +111,17 @@ class Wallet extends CI_Controller {
 
 	public function NewUserActivity(){
     //新用户领AE活动
-        $sendid_id = $this->input->get_post('sender_id');
-        $this->load->model('Judge');
-        $Jsendid_id = $this->Judge->hashAndID($sendid_id);
-		$data = $this->Judge->NewUserActive($Jsendid_id);
-		echo $data;
+		if(empty($_COOKIE['NewUser'])){
+			$sendid_id = $this->input->get_post('sender_id');
+			$this->load->model('Judge');
+			$ip = $this->Judge->get_real_ip();
+			$Jsendid_id = $this->Judge->hashAndID($sendid_id);
+			$data = $this->Judge->NewUserActive($Jsendid_id,$ip);
+			echo $data;
+		}else{
+			echo "Repeat!";
+		}
     }
+
 
 }

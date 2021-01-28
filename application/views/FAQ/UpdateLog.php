@@ -15,6 +15,12 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-01-28 --> 1.0.5
+增加cookie及IP双重验证
+调整页面底部调用降低维护量
+修复一处因更新引起的错误
+修复因更新引起的管理页面错误
+
 2021-01-27
 修改文章头部排版
 修改文章底部排版

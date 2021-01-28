@@ -34,6 +34,7 @@
 
 <?php $this->load->view('footer_inside');?>
 <?php $this->load->view('footer_SDK');?>
+<?php $this->load->view('footer'); ?>
 
 <script language="javascript">
 localStorage.setItem("PostsImg","");

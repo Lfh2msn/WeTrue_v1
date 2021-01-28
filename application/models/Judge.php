@@ -127,8 +127,47 @@ class Judge extends CI_Model {
         }
     }
 
-	public function NewUserActive($sendid_id){
-    //查询账户链上记录是否为空
+	public function Ip_Bloom($ip){
+    //过滤IP
+        $this->load->database();
+        $sql="SELECT bf_ip FROM wet_bloom WHERE bf_ip='$ip' LIMIT 1";
+        //查询hash是否存在
+        $querytx = $this->db->query($sql);
+        if($querytx->num_rows()==0){
+            $hash_filter = "ok";
+        }else{
+            $hash_filter = "filter";
+        }
+        return $hash_filter;
+    }
+
+	public function get_real_ip(){
+	//获取IP
+		$ip=FALSE;
+		if(!empty($_SERVER["HTTP_CLIENT_IP"])){
+			$ip = $_SERVER["HTTP_CLIENT_IP"];
+		}
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			$ips = explode (", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
+			if ($ip) { array_unshift($ips, $ip); $ip = FALSE; }
+			for ($i = 0; $i < count($ips); $i++) {
+				if (!eregi ("^(10│172.16│192.168).", $ips[$i])) {
+					$ip = $ips[$i];
+					break;
+				}
+			}
+		}
+		return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+	}
+
+	public function NewUserActive($sendid_id,$ip){
+	//新用户活动领取AE
+		//过滤IP
+		$Judge_IP = $this->Ip_Bloom($ip);
+		if($Judge_IP=="filter"){
+			return "Repeat!";
+		}
+		//查询账户链上记录是否为空
         $url = PUBLIC_NODE.'v2/accounts/'.$sendid_id;
         //读取节点查询账户
         @$GetUrl = file_get_contents($url);
@@ -157,12 +196,16 @@ class Judge extends CI_Model {
 			$arr = (array) json_decode($result,true);
 			$code = $arr['code'];
 			if($code == '200'){
+				$this->load->database();
+				$this->input->set_cookie("NewUser","Receive",time()+365*24*60*60);
+				$insert_bloom = "INSERT INTO wet_bloom(bf_ip,bf_reason) VALUES ('$ip','NewUserActive')";
+				$this->db->query($insert_bloom);
 				return 'ok，'.$amount.'AE';
 			}else{
-				return 'err,活动暂时结束';
+				return '活动结束';
 			}
         }else{
-			echo 'error';
+			echo 'ERROR!';
 		}
     }
 }

@@ -565,21 +565,20 @@ $(document).on("click",".AskForAE",function(){
     const sender_id = publicKey;
 	const clickAsk = $(this);
 	clickAsk.fadeOut(300);
-	$.toast("索要中...",5);
+	$.toast("索取中...",5);
     $.ajax({
         type:"POST",
         url:"/Wallet/NewUserActivity/",
         data:{sender_id},
         cache:false,
         success:function(data){
-			$.removetoast();
-            $.toast(data,1);
+            $.toast(data,2);
 			dget("NewUserActivity").style.display = "none";
 			publicKeyToBalance(publicKey);
         },
 		error:function(){
 			clickAsk.fadeIn(300);
-			$.toast("出错了，请重试",1);
+			$.toast("出错了，请重试",2);
 			publicKeyToBalance(publicKey);
 		}
     });

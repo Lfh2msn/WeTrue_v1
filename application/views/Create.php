@@ -43,3 +43,4 @@
 
 
 <?php $this->load->view('footer_SDK'); ?>
+<?php $this->load->view('footer'); ?>
