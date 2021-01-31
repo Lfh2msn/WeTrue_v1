@@ -56,30 +56,8 @@ class Contents extends CI_Model {
             $todata['commsum'] = $row->commsum;
             $todata['love'] = $row->love;
 
-
-            $sql="SELECT * from wet_users WHERE address='$sender_id' LIMIT 1";
-            $query = $this->db->query($sql);
-            if ($query->num_rows() > 0){
-                $row = $query->row(); 
-                $username_sc = $row->username;
-				if($username_sc==''){
-                    $todata['username'] = "Null";
-                }else{
-                    $todata['username'] = htmlentities($username_sc);
-                }
-                $uactive_sc = $row->uactive;
-                $todata['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-               $portrait_sc = $row->portrait;
-               if($portrait_sc==''){
-                    $todata['portrait'] = "/assets/images/avatars/null.jpg";
-                }else{
-                    $todata['portrait'] = htmlentities($portrait_sc);
-                }
-
-            }else{
-                $todata['username'] = "匿名";
-                $todata['portrait'] = "/assets/images/avatars/null.jpg";
-            }
+            $this->load->model('Users');
+			$todata['users'] = $this->Users->GetUser($sender_id);
 
             $atodata[] = $todata;//返回内容
             $data = json_encode($atodata);
@@ -121,29 +99,8 @@ class Contents extends CI_Model {
             $data['commsum'] = $row->commsum;
             $data['love']  = $row->love;
 
-            $sql="SELECT * from wet_users WHERE address='$sender_id' LIMIT 1";
-            $query = $this->db->query($sql);
-                if ($query->num_rows() > 0){
-
-                    $row = $query->row(); 
-                    $username_sc = $row->username;
-                    if($username_sc==''){
-						$data['username'] = "Null";
-					}else{
-						$data['username'] = htmlentities($username_sc);
-					}
-                    $portrait_sc = $row->portrait;
-                    $uactive_sc = $row->uactive;
-                    $data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-                    if($portrait_sc==''){
-                        $data['portrait'] = "/assets/images/avatars/null.jpg";
-                    }else{
-                        $data['portrait'] =  htmlentities($portrait_sc);
-                    }
-                }else{
-                    $data['username']= "匿名";
-                    $data['portrait'] = "/assets/images/avatars/null.jpg";
-                    }
+            $this->load->model('Users');
+			$data['users'] = $this->Users->GetUser($sender_id);
         }else{
             $sql="SELECT * FROM wet_comment WHERE hash='$hash' LIMIT 1";
             $query = $this->db->query($sql);
@@ -171,29 +128,9 @@ class Contents extends CI_Model {
             $data['commsum'] = $row->commsum;
             $data['love']  = $row->love;
 
-            $sql="SELECT * from wet_users WHERE address='$sender_id' LIMIT 1";
-            $query = $this->db->query($sql);
-                if ($query->num_rows() > 0){
+            $this->load->model('Users');
+			$data['users'] = $this->Users->GetUser($sender_id);
 
-                    $row = $query->row(); 
-                    $username_sc = $row->username;
-                    if($username_sc==''){
-						$data['username'] = "Null";
-					}else{
-						$data['username'] = htmlentities($username_sc);
-					}
-                    $portrait_sc = $row->portrait;
-                    $uactive_sc = $row->uactive;
-                    $data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-                    if($portrait_sc==''){
-                        $data['portrait'] = "/assets/images/avatars/null.jpg";
-                    }else{
-                        $data['portrait'] =  htmlentities($portrait_sc);
-                    }
-                }else{
-                    $data['username']= "匿名";
-                    $data['portrait'] = "/assets/images/avatars/null.jpg";
-                    }
             }else{
                 $data['txhash'] = "";
                 $data['sender_id'] = "";

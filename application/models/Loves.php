@@ -12,7 +12,7 @@ class Loves extends CI_Model {
         $counttotx = $this->db->query($sql_sel_totx);
 
         if($counttotx->num_rows()==0){
-            echo "别逗，刷量是要惩罚的！";
+            echo "ERROR";
         }else{
 
             $senderid_sql="SELECT hash FROM wet_love WHERE hash='$hash' and sender_id='$sender_id' LIMIT 1";
@@ -66,7 +66,7 @@ class Loves extends CI_Model {
         $counttotx = $this->db->query($sql_sel_totx);
 
         if($counttotx->num_rows()==0){
-            echo "别逗，刷量是要惩罚的！";
+            echo "ERROR";
         }else{
 
             $senderid_sql="SELECT hash FROM wet_love WHERE hash='$hash' and sender_id='$sender_id' LIMIT 1";
@@ -92,8 +92,6 @@ class Loves extends CI_Model {
                     $this->output->delete_cache('/Content/Tx/'.$tohash);
                     $this->output->delete_cache('/Comment/Tx/'.$tohash);
                 }
-
-
 
                 $sql_in="INSERT INTO wet_love(hash,sender_id) VALUES ('$hash','$sender_id')";
                 $this->db->query($sql_in);
