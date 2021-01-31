@@ -34,16 +34,12 @@
                             <div data-parent="#accordion" id="collapseOne2" class="collapse">
                                 <div class="card-body">
                         你的Wetrue活跃度将与你在Wetrue发帖、评价、点赞等行为密切相关，具体如下：<br><br>
-                            修改头像=10活跃度；<br>
-                            修改昵称=10活跃度；<br>
-                            发帖=5活跃度；<br>
-                            评价=2活跃度；<br>
-                            点赞=1活跃度；<br>
-                            违规=-30活跃度。<br><br>
-                            【早鸟福利】早鸟在Wetrue上线前6个月内进行发帖和评价（其他不变）将获得活跃度加成，具体如下：<br><br>
-                            发帖=10活跃度；<br>
-                            评价=5活跃度。
-
+                            发帖 +5<br>
+                            评价 +2<br>
+                            点赞 +1<br>
+							头像 +1<br>
+                            昵称 +1<br>
+                            违规 -30
                                 </div>
                             </div>
                         </div>

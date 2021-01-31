@@ -41,6 +41,8 @@
         </div>
 </div>
 
-
 <?php $this->load->view('footer_SDK'); ?>
 <?php $this->load->view('footer'); ?>
+<script language="javascript">
+Create_MMWords_check();
+</script>

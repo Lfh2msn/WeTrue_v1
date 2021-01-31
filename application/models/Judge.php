@@ -165,6 +165,7 @@ class Judge extends CI_Model {
 		//过滤IP
 		$Judge_IP = $this->Ip_Bloom($ip);
 		if($Judge_IP=="filter"){
+			$this->input->set_cookie("NewUser","Repeat_IP",time()+365*24*60*60);
 			return "Repeat!";
 		}
 		//查询账户链上记录是否为空

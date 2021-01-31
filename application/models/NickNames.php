@@ -57,7 +57,7 @@ class NickNames extends CI_Model {
                 }
 
             //入库行为记录
-            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','10','$wetrecp')";
+            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','1','$wetrecp')";
             $this->db->query($sql_in_beh);
 
             //删除临时缓存

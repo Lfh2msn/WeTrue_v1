@@ -1,15 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>WeTrue</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
-    />
+	<meta charset="UTF-8">
+	<title>WeTrue</title>
+	<meta name="keywords" content="微触,WeTrue,区块链微博,链上微博,AE微博,Aeternity微博">
+    <meta name="description" content="WeTrue,微触为您数据上链,AE区块链记录生活,区块链记录信息,第一家区块链微博网站">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <meta name="description" content="Choose between regular React Bootstrap tables or advanced dynamic ones.">
-
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 <link rel="icon" href="/assets/images/favicon.ico">

@@ -30,18 +30,6 @@
                             </div>
                         </div>
                         <div class="card">
-                            <div id="headingThree" class="card-header">
-                                <button type="button" data-toggle="collapse" data-target="#collapseOne3" aria-expanded="false" aria-controls="collapseThree" class="text-left m-0 p-0 btn btn-link btn-block">
-                                	<h5 class="m-0 p-0">如何查看帖子全部内容</h5>
-                                </button>
-                            </div>
-                            <div data-parent="#accordion" id="collapseOne3" class="collapse">
-                                <div class="card-body">
-                                    点击需查看的文字内容，即可显示帖子全部内容（含评价）。
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
                             <div id="headingTwo" class="b-radius-0 card-header">
                                 <button type="button" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
                                 	<h5 class="m-0 p-0">查看帖子的原图</h5>
@@ -56,7 +44,7 @@
                         <div class="card">
                             <div id="headingTwo" class="b-radius-0 card-header">
                                 <button type="button" data-toggle="collapse" data-target="#collapseOne5" aria-expanded="false" aria-controls="collapseTwo" class="text-left m-0 p-0 btn btn-link btn-block">
-                                	<h5 class="m-0 p-0">在Wetrue点赞</h5>
+                                	<h5 class="m-0 p-0">点赞</h5>
                                 </button>
                             </div>
                             <div data-parent="#accordion" id="collapseOne5" class="collapse">
@@ -74,7 +62,7 @@
                             </div>
                             <div data-parent="#accordion" id="collapseOne6" class="collapse">
                                 <div class="card-body">
-                        点击主帖或评论下方的评论标签，进入评论界面，在第一栏输入评论内容，在第二栏输入密码，点击“提交”即可。
+                        点击主帖或评论下方的评论标签，进入评论界面，输入评论内容及临时密码，点击“提交”即可。
                                 </div>
                             </div>
                         </div>
@@ -114,14 +102,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
 
                     </div>
                 </div>

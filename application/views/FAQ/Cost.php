@@ -25,13 +25,12 @@
                             </div>
                             <div data-parent="#accordion" id="collapseOne2" class="collapse">
                                 <div class="card-body">
-                                    修改头像收取3AE；<b>免费，2020年7月8日起，费用降低为0AE</b><br>
-                                    修改昵称收取5AE；<b>免费，2020年7月8日起，费用降低为0AE</b><br>
-                                    发帖收取0.1AE；<b>免费，2020年7月8日起，费用降低为0AE</b><br>
-                                    评价收取0.01AE；<b>免费，2020年7月8日起，费用降低为0AE</b><br>
+                                    修改头像收取0.0001AE;<br>
+                                    修改昵称收取0.0001AE;<br>
+                                    发帖收取0.0001AE;<br>
+                                    评价收取0.0001AE;<br>
                                     点赞不收取任何费用（免费）。<br><br>
-
-
+								注：除以上基础费用，另需支付小额矿工费。
                                 </div>
                             </div>
                         </div>

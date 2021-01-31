@@ -42,12 +42,12 @@ class Portraits extends CI_Model {
                     $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$wetsend'";
                     $this->db->query($sql_up_users);
                 }else{
-                    $sql_up_users="UPDATE wet_users SET portrait='$wetpayin',maxportrait='$wethash',uactive=uactive+10 WHERE address='$wetsend'";
+                    $sql_up_users="UPDATE wet_users SET portrait='$wetpayin',maxportrait='$wethash',uactive=uactive+1 WHERE address='$wetsend'";
                     $this->db->query($sql_up_users);
                 }
 
             //入库行为记录
-            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','10','$wetrecp')";
+            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','1','$wetrecp')";
             $this->db->query($sql_in_beh);
 
             //删除临时缓存
