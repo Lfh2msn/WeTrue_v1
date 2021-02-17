@@ -32,19 +32,8 @@ class Portraits extends CI_Model {
             $wetpayin = htmlspecialchars($wetplmin,ENT_QUOTES);
 
             //用户活跃搜索及入库
-            $sql_sel_add="SELECT address FROM wet_users WHERE address='$wetsend' LIMIT 1";
-            $countadd = $this->db->query($sql_sel_add);
-
-                if($countadd->num_rows()==0){ //如果没有用户
-                    $sql_in_users="INSERT INTO wet_users(address,portrait,maxportrait) VALUES ('$wetsend','$wetpayin','$wethash')";
-                    $this->db->query($sql_in_users);
-
-                    $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$wetsend'";
-                    $this->db->query($sql_up_users);
-                }else{
-                    $sql_up_users="UPDATE wet_users SET portrait='$wetpayin',maxportrait='$wethash',uactive=uactive+1 WHERE address='$wetsend'";
-                    $this->db->query($sql_up_users);
-                }
+			$this->load->model('Users');
+			$this->Users->userActive($wetsend,$uactive=1);
 
             //入库行为记录
             $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','1','$wetrecp')";

@@ -27,18 +27,8 @@ class Loves extends CI_Model {
                 $this->db->query($sql_in);
 
                 //用户活跃搜索及入库
-                $sql_sel_add="SELECT address FROM wet_users WHERE address='$sender_id' LIMIT 1";
-                $countadd = $this->db->query($sql_sel_add);
-
-                if($countadd->num_rows()==0){ //如果没有记录
-                    $sql_in_users="INSERT INTO wet_users(address) VALUES ('$sender_id')";
-                    $this->db->query($sql_in_users);
-                    $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$sender_id'";
-                    $this->db->query($sql_up_users);
-                }else{
-                    $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$sender_id'";
-                    $this->db->query($sql_up_users);
-                }
+			$this->load->model('Users');
+			$this->Users->userActive($wetsend,$uactive=1);
 
             //入库行为记录
             $sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','con_zan','1','$hash')";
@@ -97,21 +87,12 @@ class Loves extends CI_Model {
                 $this->db->query($sql_in);
 
                 //用户活跃搜索及入库
-                $sql_sel_add="SELECT address FROM wet_users WHERE address='$sender_id' LIMIT 1";
-                $countadd = $this->db->query($sql_sel_add);
+				$this->load->model('Users');
+				$this->Users->userActive($wetsend,$uactive=1);
 
-                if($countadd->num_rows()==0){ //如果没有记录
-                    $sql_in_users="INSERT INTO wet_users(address) VALUES ('$sender_id')";
-                    $this->db->query($sql_in_users);
-                    $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$sender_id'";
-                    $this->db->query($sql_up_users);
-                }else{
-                    $sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$sender_id'";
-                    $this->db->query($sql_up_users);
-                }
-            //入库行为记录
-            $sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','com_zan','1','$hash')";
-            $this->db->query($sql_in_beh);
+				//入库行为记录
+				$sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','com_zan','1','$hash')";
+				$this->db->query($sql_in_beh);
 
                 $sql="SELECT love FROM wet_comment WHERE hash='$hash' LIMIT 1";
                 $query = $this->db->query($sql)->row_array();

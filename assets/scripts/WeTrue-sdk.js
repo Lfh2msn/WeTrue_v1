@@ -49,18 +49,19 @@ if (publicKey!="" && publicKey!=null && publicKey!='undefined'){
 
 }
 
-async function publicKeyToBalance(publicKey) {
-	const NodeUrl = toSendNode+'v2/accounts/'+publicKey;
+async function publicKeyToBalance(publicKey){
+	const NodeUrl = '/Tools/getAccounts/'+publicKey;
 	const AeBalance = $.get(NodeUrl, BalanceCallBack);
-	AeBalance.fail(function(xhr, error, throwerror) {
-		dget("balance").innerHTML = "New Account";
-		dget("NewUserActivity").style.display="block";
-		dget('sendAePost').innerHTML = "AE不足";
-		dget('sendAePost').disabled ="disabled";
-		dget('sendAePost').class = "btn-shadow btn btn-secondary";
-	});
-    function BalanceCallBack(data, status) {
-		const balance = data.balance;
+    function BalanceCallBack(data, status){
+		const json = $.parseJSON(data);
+		if(json.id=="null"){
+			dget("balance").innerHTML = "New Account";
+			dget("NewUserActivity").style.display="block";
+			dget('sendAePost').innerHTML = "AE不足";
+			dget('sendAePost').disabled ="disabled";
+			dget('sendAePost').class = "btn-shadow btn btn-secondary";
+		}
+		const balance = json.balance;
 		const balances = balanceDC(balance);
 		if(balances <= 0.001){
 			dget('sendAePost').innerHTML = "AE不足";
@@ -265,7 +266,7 @@ async function sendAeTch(password, payload,Effect){
         }
 
     }catch(err){
-        dget("result").innerHTML = err+"<br>未登录、密码错误、余额不足等原因";
+        dget("result").innerHTML = err+"<br>密码错误、节点连接失败、余额不足等原因";
         $.removetoast();
     }
 };

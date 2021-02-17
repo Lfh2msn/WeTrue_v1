@@ -121,19 +121,8 @@ class Comments extends CI_Model {
             $this->db->query($sql_insert);
 
             //用户活跃搜索及入库
-            $sql_select_address="SELECT address FROM wet_users WHERE address='$wet_sender_id' LIMIT 1";
-            $count_address = $this->db->query($sql_select_address);
-
-                if($count_address->num_rows()==0){ //如果没有记录
-
-                    $sql_insert="INSERT INTO wet_users(address) VALUES ('$wet_sender_id')";
-                    $this->db->query($sql_insert);
-                    $sql_update="UPDATE wet_users SET uactive=uactive+2 WHERE address='$wet_sender_id'";
-                    $this->db->query($sql_update);
-                }else{
-                    $sql_update="UPDATE wet_users SET uactive=uactive+2 WHERE address='$wet_sender_id'";
-                    $this->db->query($sql_update);
-                }
+			$this->load->model('Users');
+			$this->Users->userActive($wetsend,$uactive=2);
 
             //入库行为记录
             $sql_insert_behavior="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wet_sender_id','$wet_hash','$wet_type','2','$wet_recipient_id')";

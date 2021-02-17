@@ -17,6 +17,7 @@ class Users extends CI_Model {
 				$data['username'] = htmlentities($username_sc);
 			}
 			$uactive_sc = $row->uactive;
+            $data['active'] = $uactive_sc;
 			$data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
 			$portrait_sc = $row->portrait;
 			if($portrait_sc==''){
@@ -29,5 +30,20 @@ class Users extends CI_Model {
 			$data['portrait'] = "/assets/images/avatars/null.jpg";
 		}
 		return $data;
+	}
+
+	public function userActive($address,$uactive){
+	//用户活跃搜索及入库
+		$sql_select_address="SELECT address FROM wet_users WHERE address='$address' LIMIT 1";
+		$count_address = $this->db->query($sql_select_address);
+		if($count_address->num_rows()==0){ //如果没有记录
+			$sql_insert="INSERT INTO wet_users(address) VALUES ('$address')";
+			$this->db->query($sql_insert);
+			$sql_update="UPDATE wet_users SET uactive=uactive+$uactive WHERE address='$address'";
+			$this->db->query($sql_update);
+		}else{
+			$sql_update="UPDATE wet_users SET uactive=uactive+$uactive WHERE address='$address'";
+			$this->db->query($sql_update);
+		}
 	}
 }

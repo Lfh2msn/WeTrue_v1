@@ -15,6 +15,11 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-02-18 --> 1.0.6
+新增getAccounts解决跨域问题
+合并积分调用
+调整模块用户页调用
+
 2021-02-17
 修复名称点击跳转错误问题
 修复我的关注页面问题

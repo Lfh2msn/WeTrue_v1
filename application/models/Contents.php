@@ -179,20 +179,9 @@ class Contents extends CI_Model {
             $sql_in_content="INSERT INTO wet_content(hash,sender_id,recipient_id,utctime,amount,content_type,payload,imgtx) VALUES ('$wethash','$wetsend','$wetrecp','$wettime','$wetamot','$wettype','$wetpayl','$wetimgtx')";
             $this->db->query($sql_in_content);
 
-            //用户活跃搜索及入库
-            $sql_sel_add="SELECT address FROM wet_users WHERE address='$wetsend' LIMIT 1";
-            $countadd = $this->db->query($sql_sel_add);
-
-            if($countadd->num_rows()==0){ //如果没有记录
-
-                $sql_in_users="INSERT INTO wet_users(address) VALUES ('$wetsend')";
-                $this->db->query($sql_in_users);
-                $sql_up_users="UPDATE wet_users SET uactive=uactive+5 WHERE address='$wetsend'";
-                $this->db->query($sql_up_users);
-            }else{
-                $sql_up_users="UPDATE wet_users SET uactive=uactive+5 WHERE address='$wetsend'";
-                $this->db->query($sql_up_users);
-            }
+			//用户活跃搜索及入库
+			$this->load->model('Users');
+			$this->Users->userActive($wetsend,$uactive=5);
             
         //入库行为记录
         $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','5','$wetrecp')";

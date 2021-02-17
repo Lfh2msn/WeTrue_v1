@@ -105,10 +105,10 @@ function get_content(dstr){
                 				<div class="app-page-title mb-3">
                                     <div class="page-title-wrapper">
                                         <div class="page-title-heading">
-                                        	<img width="80" height="80" src="${item[0].portrait}">
+                                        	<img width="80" height="80" src="${item[0].users.portrait}">
                                             <div class="btn-group">
-                                                <div class="ml-3">${item[0].username} ${item[0].uactive}
-                                                <div class="page-title-subheading"><n i18n="Active">活跃度</n>：${item[0].active}</div></div>
+                                                <div class="ml-3">${item[0].users.username} ${item[0].users.uactive}
+                                                <div class="page-title-subheading"><n i18n="Active">活跃度</n>：${item[0].users.active}</div></div>
                                                 <div class="page-title-actions ml-5">
             										<button title="Example Tooltip" class="btn btn-secondary Following">
 													<i class="fa fa-star"></i>
@@ -164,23 +164,23 @@ function get_content(dstr){
                                     <tbody>`;
             for(i in item){
                 str +=` <tr><td class="text-center">
-                            	<img width="40" height="40" class="rounded-circle" src="${item[i].portrait}">
+                            	<img width="40" height="40" class="rounded-circle" src="${item[i].users.portrait}">
                             </td>
                             <td>
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">
                                         <div class="widget-content-left flex2">
-                                            <div class="widget-heading">${item[i].username}</div>
+                                            <div class="widget-heading">${item[i].users.username}</div>
                                             <div class="widget-subheading">${item[i].follow_show}</div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="text-center">
-                                ${item[i].uactive}
+                                ${item[i].users.uactive}
                             </td>
                             <td class="text-center">
-                                ${item[i].active}
+                                ${item[i].users.active}
                             </td>
                             <td class="text-center">
                                 <a href="/Wallet/ID/${item[i].follow}">前往</a>
