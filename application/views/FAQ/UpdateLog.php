@@ -15,10 +15,18 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-02-27
+替换懒加载默认图片
+替换favicon默认图标
+修复管理页举报
+修复管理页屏蔽
+修改活动屏蔽引起的错误
+
 2021-02-18 --> 1.0.6
 新增getAccounts解决跨域问题
 合并积分调用
 调整模块用户页调用
+修复密码不显示为*
 
 2021-02-17
 修复名称点击跳转错误问题

@@ -18,15 +18,31 @@
                                             <div class="col-md-12">
                                                 <span id="words_digit" i18n="ImportCreate">Loading SDK...</span>
                                                 <div class="position-relative form-group">
-                                                    <textarea class="form-control alert alert-info show text_BandFrame" rows="3" style="background-color:white;" id="words"  placeholder="one two three four..." onkeyup="value=value.replace(/[^A-Za-z ]/g,'')" AUTOCOMPLETE="off"></textarea>
+                                                    <textarea 
+														class="form-control alert alert-info show text_BandFrame" 
+														rows="3" 
+														style="background-color:white;" 
+														id="words" 
+														placeholder="one two three four..." 
+														onkeyup="value=value.replace(/[^A-Za-z ]/g,'')" 
+														autocomplete="off"
+													></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <span id="pwd_digit" i18n="Setpassword">...</span>
                                                 <div class="position-relative form-group">
-                                                <input name="password" id="examplePassword" placeholder="Password..." type="text" class="form-control" 
-                                                maxlength="20" autocomplete="off" onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" onfocus="this.type=password"></div>
+                                                <input 
+												name="password" 
+												id="examplePassword" 
+												placeholder="Password..." 
+												type="text" 
+												class="form-control" 
+                                                maxlength="20" 
+												onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" 
+												>
+												</div>
                                             </div>
                                         </div>
                                     </form>

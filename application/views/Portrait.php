@@ -21,10 +21,16 @@
                             <div role="group" class="btn-group text-center">
                                 <div class="nav ">
 		                    		<div class="input-group">
-                                        <input name="password" id="sendPassword" placeholder="Password" type="password"
-	                          					class="form-control" maxlength="20" style="width:120px" 
-	                          					onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')">
-
+                                        <input 
+											name="password" 
+											id="sendPassword" 
+											placeholder="Password" 
+											type="text"
+	                          				class="form-control" 
+											maxlength="20" 
+											style="width:120px" 
+	                          				onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')"
+										>
                                         <div class="input-group-append">
                                             <button class="btn btn-secondary" onclick="return pwd_check();" i18n="Release">提交</button>
                                         </div>

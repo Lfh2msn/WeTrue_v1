@@ -24,8 +24,16 @@
                                             <div class="col-md-12">
                                                 <span id="pwd_digit"><n i18n="Password">密码</n></span>
                                                 <div class="position-relative form-group">
-                                                <input name="password" id="sendPassword" placeholder="Password..." type="password" class="form-control" 
-                                                maxlength="20" onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')"></div>
+                                                <input 
+													name="password" 
+													id="sendPassword" 
+													placeholder="Password..." 
+													type="text" 
+													class="form-control" 
+													maxlength="20" 
+													onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')"
+													>
+												</div>
                                             </div>
                                         </div>
                                     </form>

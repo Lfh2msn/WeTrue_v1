@@ -10,9 +10,10 @@
     <meta name="description" content="Choose between regular React Bootstrap tables or advanced dynamic ones.">
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
-<link rel="icon" href="/assets/images/favicon.ico">
-<link rel="stylesheet" href="/main.css?v=1.0.3">
-<link rel="stylesheet" href="/assets/css/WET.css?v=<?php echo $WeTrue?>">
+	<link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/assets/images/favicon-16x16.png" sizes="16x16">
+	<link rel="stylesheet" href="/main.css?v=1.0.3">
+	<link rel="stylesheet" href="/assets/css/WET.css?v=<?php echo $WeTrue?>">
 </head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar fixed-footer">

@@ -55,26 +55,8 @@ class A_Report extends CI_Model {
 	            $todata['love']    = $mrow->love;
             }
 
-
-            $sql="SELECT * from wet_users WHERE address='$sender_id' LIMIT 1";
-            $query = $this->db->query($sql);
-            if ($query->num_rows() > 0){
-                $row = $query->row(); 
-                $todata['username'] = htmlentities($row->username);
-                $uactive_sc = $row->uactive;
-                $this->load->model('Judge');
-                $todata['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-               $portrait_sc = $row->portrait;
-               if($portrait_sc==''){
-                    $todata['portrait'] = "/assets/images/avatars/null.jpg";
-                }else{
-                    $todata['portrait'] =  htmlentities($portrait_sc);
-                }
-
-            }else{
-                $todata['username'] = "匿名";
-                $todata['portrait'] = "/assets/images/avatars/null.jpg";
-            }
+			$this->load->model('Users');
+			$todata['users'] = $this->Users->GetUser($sender_id);
 
             $atodata[] = $todata;//返回内容
             $data = json_encode($atodata);
@@ -97,7 +79,7 @@ class A_Report extends CI_Model {
         $row = $query->row();
         $totalSize=$row->count;//总数量
         $totalPage=ceil($totalSize/$pageLimit);//总页数
-        $bfsql="SELECT bf_hash from wet_bloom order by uid desc LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
+        $bfsql="SELECT bf_hash from wet_bloom WHERE bf_hash!='' order by uid desc LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
         $bfquery = $this->db->query($bfsql);
 
         $todata['pageNum'] = $pageNum;//数量
@@ -137,26 +119,8 @@ class A_Report extends CI_Model {
 	            $todata['love']    = $mrow->love;
             }
 
-
-            $sql="SELECT * from wet_users WHERE address='$sender_id' LIMIT 1";
-            $query = $this->db->query($sql);
-            if ($query->num_rows() > 0){
-                $row = $query->row(); 
-                $todata['username'] = $row->username;
-                $uactive_sc = $row->uactive;
-                $this->load->model('Judge');
-                $todata['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-               $portrait_sc = $row->portrait;
-               if($portrait_sc==''){
-                    $todata['portrait'] = "/assets/images/avatars/null.jpg";
-                }else{
-                    $todata['portrait'] =  htmlentities($portrait_sc);
-                }
-
-            }else{
-                $todata['username'] = "匿名";
-                $todata['portrait'] = "/assets/images/avatars/null.jpg";
-            }
+            $this->load->model('Users');
+			$todata['users'] = $this->Users->GetUser($sender_id);
 
             $atodata[] = $todata;//返回内容
             $data = json_encode($atodata);

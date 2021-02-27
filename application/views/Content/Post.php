@@ -19,8 +19,15 @@
                         <input type="file" id="ImgPath" accept="image/*" onclick="return portrait_check();">+
                     </a>
                 <div class="input-group ml-2" style="width:200px">
-                    <input name="password" id="sendPassword" placeholder="Password" type="text"
-                            class="form-control" maxlength="20" onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" onfocus="this.type=password">
+                    <input 
+						name="password" 
+						id="sendPassword" 
+						placeholder="Password" 
+						type="text" 
+						class="form-control" 
+						maxlength="20" 
+						onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" 
+						>
                     <div class="input-group-append">
                         <button class="btn btn-secondary" id="sendAePost" style="height:38px" onclick="return pwd_check();" i18n="Release">提交</button>
                     </div>

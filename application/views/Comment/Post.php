@@ -10,11 +10,29 @@
                 </div>
                     <textarea class="form-control text_BandFrame alert alert-info show autosize-input" style="max-height: 60px;background-color:white;" id="comm_to_hash" rows="1" readonly><?php echo $tohash;?></textarea>
 
-                    <textarea maxlength="15000" onchange="this.value=this.value.substring(0, 15000)" onkeydown="this.value=this.value.substring(0, 15000)" onkeyup="this.value=this.value.substring(0, 15000)"  id="payload" class="form-control autosize-input" rows="4" style="max-height: 500px;" placeholder="说点什么吧..."></textarea>
+                    <textarea 
+						maxlength="15000" 
+						onchange="this.value=this.value.substring(0, 15000)" 
+						onkeydown="this.value=this.value.substring(0, 15000)" 
+						onkeyup="this.value=this.value.substring(0, 15000)"  
+						id="payload" 
+						class="form-control autosize-input" 
+						rows="4" 
+						style="max-height: 500px;" 
+						placeholder="说点什么吧..." 
+						autocomplete="off"
+					></textarea>
                     <br>                
                     <div class="input-group" style="width:200px">
-                        <input name="password" id="sendPassword" placeholder="Password" type="text"
-                                class="form-control" maxlength="20" onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" onfocus="this.type=password">
+                        <input 
+						name="password" 
+						id="sendPassword" 
+						placeholder="Password" 
+						type="text" 
+						class="form-control" 
+						maxlength="20" 
+						onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" 
+						>
                         <div class="input-group-append">
                             <button class="btn btn-secondary" id="sendAePost" onclick="return pwd_check();" i18n="Release">提交</button>
                         </div>

@@ -18,6 +18,7 @@ class Users extends CI_Model {
 			}
 			$uactive_sc = $row->uactive;
             $data['active'] = $uactive_sc;
+			$this->load->model('Judge');
 			$data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
 			$portrait_sc = $row->portrait;
 			if($portrait_sc==''){

@@ -96,27 +96,9 @@
                                 </a>
                                 <ul >
                                     <li>
-                                        <a href="/faq/help">
+                                        <a href="/faq/help0">
                                         <i class="metismenu-icon"></i>
                                         使用帮助1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq/help2">
-                                        <i class="metismenu-icon"></i>
-                                        使用帮助2
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq/help3">
-                                        <i class="metismenu-icon"></i>
-                                        等级及活跃度
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/faq/cost">
-                                        <i class="metismenu-icon pe-7s-paper-plane"></i>
-                                        为何收费及如何收费
                                         </a>
                                     </li>
                                 </ul>
