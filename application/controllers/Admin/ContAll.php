@@ -5,8 +5,8 @@ class ContAll extends CI_Controller {
 
 	public function index(){
 	//最新回复页
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('Admin/header',$Configdata);
 		$this->load->model('Admin/A_ManualIn');
 		$data = $this->A_ManualIn->TP_Content();

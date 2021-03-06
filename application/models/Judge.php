@@ -6,8 +6,8 @@ class Judge extends CI_Model {
     public function hash($hash,$source){
     //对接收hash预处理
 		//调用Config
-		$this->load->model('WeTrueConfig');
-		$wetConfig = $this->WeTrueConfig->Config();
+		$this->load->model('WetConfig');
+		$wetConfig = $this->WetConfig->Config();
 
         //写入临时数据库
         $sql_in_tp="INSERT INTO wet_temporary(tp_hash,tp_source) VALUES ('$hash','$source')";
@@ -163,8 +163,8 @@ class Judge extends CI_Model {
 	public function NewUserActive($sendid_id,$ip){
 	//新用户活动领取AE
 		//调用Config
-		$this->load->model('WeTrueConfig');
-		$wetConfig = $this->WeTrueConfig->Config();
+		$this->load->model('WetConfig');
+		$wetConfig = $this->WetConfig->Config();
 
 		//过滤IP
 		$Judge_IP = $this->Ip_Bloom($ip);

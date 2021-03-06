@@ -46,8 +46,10 @@ class A_ManualIn extends CI_Model {
 			//对接收hash预处理
 			$this->load->model('Judge');
 			//hash进入预先实体化，防止初步注入
+			$this->load->model('Config');
+			$wetConfig = $this->Config->WetConfig();
 			$hashen = $this->Judge->hashAndID($hash);
-			$url = PUBLIC_NODE.'v2/transactions/'.$hashen;
+			$url = $wetConfig['backendServiceNode'].'v2/transactions/'.$hashen;
 			//屏蔽错误,防止节点暴露（屏蔽符：@ ）
 			@$json = file_get_contents($url);
 			//过滤无效hash

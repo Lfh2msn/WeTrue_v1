@@ -10,8 +10,8 @@ class Content extends CI_Controller {
 		$Jhash=$this->Judge->hashAndID($hash);
 		$data = $this->Contents->TxContent($Jhash);
 		$data['hash'] = $Jhash;
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('Content/Home',$data);
 		$this->output->cache(10080);
@@ -19,8 +19,8 @@ class Content extends CI_Controller {
 
     public function Post(){
     //发主帖页
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('Content/Post');
     }

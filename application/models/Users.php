@@ -21,7 +21,9 @@ class Users extends CI_Model {
 			$this->load->model('Judge');
 			$data['uactive'] = $this->Judge->GetActiveGrade($uActive);
 			if($e){
-				$data['lastActive'] = ($uActive - $row->last_active) * 10;
+				$this->load->model('Config');
+				$wetConfig = $this->Config->WetConfig();
+				$data['lastActive'] = ($uActive - $row->last_active) * $wetConfig['airdropWttRatio'];
 			}
 			$portrait = $row->portrait;
 			if(!$portrait){

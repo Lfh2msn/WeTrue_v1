@@ -5,8 +5,8 @@ class Portrait extends CI_Controller {
 
 	public function index(){
 	//头像修改首页
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('Portrait');
 	}

@@ -5,8 +5,8 @@ class Home extends CI_Controller {
 
 	public function index(){
     //首页
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
+	$this->load->model('Config');
+	$Configdata = $this->Config->articleConfig();
 	$this->load->view('header',$Configdata);
 	$this->load->view('index');
 	}

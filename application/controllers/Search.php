@@ -5,12 +5,12 @@ class Search extends CI_Controller {
 
 	public function KeyWord($Key){
     //首页
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
-	$this->load->view('header',$Configdata);
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('header',$Configdata);
 	//获取关键词
-	$data['KeyWord'] = $Key;
-	$this->load->view('Search',$data);
+		$data['KeyWord'] = $Key;
+		$this->load->view('Search',$data);
 	}
 
     public function Content(){

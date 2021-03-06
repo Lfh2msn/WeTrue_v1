@@ -4,17 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Report extends CI_Controller {
 
 	public function index(){
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
-	$this->load->view('Admin/header',$Configdata);
-	$this->load->view('Admin/index');
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('Admin/header',$Configdata);
+		$this->load->view('Admin/index');
 	}
 
 	public function Manage(){
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
-	$this->load->view('Admin/header',$Configdata);
-	$this->load->view('Admin/Report');
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('Admin/header',$Configdata);
+		$this->load->view('Admin/Report');
 	}
 
 	//获取举报帖
@@ -70,10 +70,10 @@ class Report extends CI_Controller {
 
 	//已屏蔽页面
 	public function Bloom(){
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
-	$this->load->view('Admin/header',$Configdata);
-	$this->load->view('Admin/Report_Bloom');
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('Admin/header',$Configdata);
+		$this->load->view('Admin/Report_Bloom');
 	}
 
 	//获取已屏蔽帖

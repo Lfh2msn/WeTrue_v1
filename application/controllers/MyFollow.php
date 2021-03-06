@@ -5,10 +5,10 @@ class MyFollow extends CI_Controller {
 
 	public function index(){
     //关注首页
-	$this->load->model('WeTrueConfig');
-	$Configdata = $this->WeTrueConfig->WETConfig();
-	$this->load->view('header',$Configdata);
-	$this->load->view('MyFollow');
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('header',$Configdata);
+		$this->load->view('MyFollow');
 	}
 
     public function Content(){

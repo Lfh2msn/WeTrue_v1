@@ -5,8 +5,8 @@ class LatestPictures extends CI_Controller {
 
 	public function index(){
 	//最新图片页
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('LatestPictures');
 	}

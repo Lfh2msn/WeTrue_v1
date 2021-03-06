@@ -15,6 +15,13 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-03-06 --> 1.1.0
+新增WTT空投
+更名 WeTrueConfig 为 Config
+调整全站统一调用
+调整代码结构
+修复多处代码错误
+
 2021-03-03
 修复部分Bug
 优化代码

@@ -5,6 +5,8 @@ class A_Airdrop extends CI_Model {
 
 	public function UpdateLastActive($e=''){
 	//更新用户活跃、写入txt
+		$this->load->model('Config');
+		$wetConfig = $this->Config->WetConfig();
 		if($e){
 			//带参则重写lists.txt
 			$File = fopen("airdrop/lists/".date("Y-m-d").".txt","w");
@@ -12,7 +14,6 @@ class A_Airdrop extends CI_Model {
 			fwrite($File, $Text);
 			fclose($File);
 		}
-
 		$this->load->database();
 		$sql="SELECT address,uactive,last_active FROM wet_users";
         $query = $this->db->query($sql);
@@ -23,7 +24,7 @@ class A_Airdrop extends CI_Model {
 				$address = $row->address;
 				if($address!=''){
 					$textFile = fopen("airdrop/lists/".date("Y-m-d").".txt","a");
-					$appendText = $address.":".(($uactive-$lastActive) * 10)."\r\n";
+					$appendText = $address.":".(($uactive-$lastActive) * $wetConfig['airdropWttRatio'])."\r\n";
 					fwrite($textFile, $appendText);
 					fclose($textFile);
 				}

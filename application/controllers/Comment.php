@@ -10,8 +10,8 @@ class Comment extends CI_Controller {
 		$this->load->model('Contents');
 		$data = $this->Contents->TxContent($Jhash);
 		$data['hash'] = $hash;
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('Comment/Home',$data);
 		$this->output->cache(10080);
@@ -23,8 +23,8 @@ class Comment extends CI_Controller {
 		$this->load->model('Judge');
 		$Jhash=$this->Judge->hashAndID($hash);
 		$data['tohash'] = $Jhash;
-		$this->load->model('WeTrueConfig');
-		$Configdata = $this->WeTrueConfig->WETConfig();
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
 		$this->load->view('header',$Configdata);
 		$this->load->view('Comment/Post',$data);
     }
