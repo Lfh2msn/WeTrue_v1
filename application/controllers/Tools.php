@@ -12,7 +12,7 @@ class Tools extends CI_Controller {
     public function hashToimg($hash){
 	//Tx转照片
 		$this->load->model('Config');
-		$wetConfig = $this->Config->articleConfig();
+		$wetConfig = $this->Config->WetConfig();
         $url = $wetConfig['backendServiceNode'].'v2/transactions/'.$hash;
 
 		//检测是否th_开头
@@ -57,7 +57,7 @@ class Tools extends CI_Controller {
 	//获取账户信息
         //获取节点数据（屏蔽符：@ ）
 		$this->load->model('Config');
-		$wetConfig = $this->Config->articleConfig();
+		$wetConfig = $this->Config->WetConfig();
 		$url = $wetConfig['backendServiceNode'].'v2/accounts/'.$address;
         @$json = file_get_contents($url);
 		//无效账户
