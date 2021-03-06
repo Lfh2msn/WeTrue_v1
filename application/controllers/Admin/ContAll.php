@@ -11,7 +11,6 @@ class ContAll extends CI_Controller {
 		$this->load->model('Admin/A_ManualIn');
 		$data = $this->A_ManualIn->TP_Content();
 		$this->load->view('Admin/ManualInContent',$data);
-		//SELECT distinct address FROM public.wet_behavior;
 	}
 
     public function InContent($hash){

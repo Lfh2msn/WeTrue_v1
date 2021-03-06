@@ -70,8 +70,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            *我的关注
+                                        <a href="/Admin/Airdrop">
+                                            更新WTT
                                         </a> 
                                     </li>
                                     <li>

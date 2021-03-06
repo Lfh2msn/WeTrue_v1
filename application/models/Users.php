@@ -3,28 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Model {
   
-    public function GetUser($address){
+    public function GetUser($address,$e=''){
 	//获取用户头像、昵称、等级
 		$this->load->database();
 		$sql="SELECT * from wet_users WHERE address='$address' LIMIT 1";
 		$query = $this->db->query($sql);
 		if ($query->num_rows() > 0){
 			$row = $query->row(); 
-			$username_sc = $row->username;
-			if($username_sc==''){
+			$userName = $row->username;
+			if(!$userName){
 				$data['username'] = "Null";
 			}else{
-				$data['username'] = htmlentities($username_sc);
+				$data['username'] = htmlentities($userName);
 			}
-			$uactive_sc = $row->uactive;
-            $data['active'] = $uactive_sc;
+			$uActive = $row->uactive;
+            $data['active'] = $uActive;
 			$this->load->model('Judge');
-			$data['uactive'] = $this->Judge->GetActiveGrade($uactive_sc);
-			$portrait_sc = $row->portrait;
-			if($portrait_sc==''){
+			$data['uactive'] = $this->Judge->GetActiveGrade($uActive);
+			if($e){
+				$data['lastActive'] = ($uActive - $row->last_active) * 10;
+			}
+			$portrait = $row->portrait;
+			if(!$portrait){
 				$data['portrait'] = "/assets/images/avatars/null.jpg";
 			}else{
-				$data['portrait'] =  htmlentities($portrait_sc);
+				$data['portrait'] =  htmlentities($portrait);
 			}
 		}else{
 			$data['username'] = "匿名";
@@ -33,17 +36,17 @@ class Users extends CI_Model {
 		return $data;
 	}
 
-	public function userActive($address,$uactive){
+	public function userActive($address,$active){
 	//用户活跃搜索及入库
 		$sql_select_address="SELECT address FROM wet_users WHERE address='$address' LIMIT 1";
 		$count_address = $this->db->query($sql_select_address);
 		if($count_address->num_rows()==0){ //如果没有记录
 			$sql_insert="INSERT INTO wet_users(address) VALUES ('$address')";
 			$this->db->query($sql_insert);
-			$sql_update="UPDATE wet_users SET uactive=uactive+$uactive WHERE address='$address'";
+			$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
 			$this->db->query($sql_update);
 		}else{
-			$sql_update="UPDATE wet_users SET uactive=uactive+$uactive WHERE address='$address'";
+			$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
 			$this->db->query($sql_update);
 		}
 	}

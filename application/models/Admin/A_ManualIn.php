@@ -65,8 +65,6 @@ class A_ManualIn extends CI_Model {
 			$sql_in_tp="INSERT INTO wet_temporary(tp_hash,tp_source) VALUES ('$hashen','$wettype')";
 			$this->db->query($sql_in_tp);
 
-            //废弃-- $this->load->model('Contents');
-            //废弃-- $this->Contents->inContent($hash);
             echo "提交失败，已重新解析，请再次点击提交";
         }
     }
