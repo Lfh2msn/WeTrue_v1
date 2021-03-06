@@ -9,22 +9,23 @@ class HotPost extends CI_Model {
         if($pageLimit<1){$pageLimit=1;}
 
         $this->load->database();
-        $FifteenTime = (time()-86400*10)*1000;//86400秒*10天*1000毫秒
+        $FifteenTime = (time()-86400*5)*1000;//86400秒*10天*1000毫秒
         $sql="SELECT count(*) from wet_content WHERE utctime >= $FifteenTime";
         $query = $this->db->query($sql);
         $row = $query->row();
         $totalSize=$row->count;//总数量
         $totalPage=ceil($totalSize/$pageLimit);//总页数
-        $sql = "SELECT hash,sender_id,utctime,payload,imgtx,love,commsum FROM wet_content 
-                WHERE utctime >= $FifteenTime ORDER BY (love+commsum) DESC 
-                LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
-
-        $query = $this->db->query($sql);
+        
         $todata['pageNum'] = $pageNum;//数量
         $todata['pageLimit'] = $pageLimit;//数量
         $todata['totalPage'] = $totalPage;//总页数
         $todata['totalSize'] = $totalSize;//总数
+		$query->free_result();  //释放$query
 
+		$sql = "SELECT hash,sender_id,utctime,payload,imgtx,love,commsum FROM wet_content 
+                WHERE utctime >= $FifteenTime ORDER BY (love+commsum) DESC 
+                LIMIT $pageLimit offset ".($pageNum-1)*$pageLimit;
+        $query = $this->db->query($sql);
         foreach ($query->result() as $row){
             $hash = $row->hash;
             $todata['hash'] = $hash;

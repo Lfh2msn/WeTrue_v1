@@ -28,7 +28,7 @@ class Loves extends CI_Model {
 
                 //用户活跃搜索及入库
 			$this->load->model('Users');
-			$this->Users->userActive($wetsend,$uactive=1);
+			$this->Users->userActive($sender_id,$active=1);
 
             //入库行为记录
             $sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','con_zan','1','$hash')";
@@ -88,7 +88,7 @@ class Loves extends CI_Model {
 
                 //用户活跃搜索及入库
 				$this->load->model('Users');
-				$this->Users->userActive($wetsend,$uactive=1);
+				$this->Users->userActive($sender_id,$uactive=1);
 
 				//入库行为记录
 				$sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','com_zan','1','$hash')";

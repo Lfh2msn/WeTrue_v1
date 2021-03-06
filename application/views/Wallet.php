@@ -107,8 +107,13 @@ function get_content(dstr){
                                         <div class="page-title-heading">
                                         	<img width="80" height="80" src="${item[0].users.portrait}">
                                             <div class="btn-group">
-                                                <div class="ml-3">${item[0].users.username} ${item[0].users.uactive}
-                                                <div class="page-title-subheading"><n i18n="Active">活跃度</n>：${item[0].users.active}</div></div>
+                                                <div class="ml-1">${item[0].users.username} ${item[0].users.uactive}
+													<div class="page-title-subheading"><n i18n="Active">活跃度</n> : 
+													${item[0].users.active}
+													</div>
+													<div class="page-title-subheading">WTT : ${item[0].users.lastActive} (待入账)
+													</div>
+												</div>
                                                 <div class="page-title-actions ml-5">
             										<button title="Example Tooltip" class="btn btn-secondary Following">
 													<i class="fa fa-star"></i>

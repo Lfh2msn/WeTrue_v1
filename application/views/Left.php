@@ -46,9 +46,9 @@
                                             <span i18n="LatestPosts">最新发布</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="/MyFollow">
-                                            <span i18n="MyFollowing">我的关注</span>
+									<li>
+                                        <a href="/HotPosts">
+                                            <span i18n="HotPosts">热点推荐</span>
                                         </a> 
                                     </li>
                                     <li>
@@ -62,8 +62,8 @@
                                         </a> 
                                     </li>
                                     <li>
-                                        <a href="/HotPosts">
-                                            <span i18n="HotPosts">热点推荐</span>
+                                        <a href="/MyFollow">
+                                            <span i18n="MyFollowing">我的关注</span>
                                         </a> 
                                     </li>
                                 </ul>

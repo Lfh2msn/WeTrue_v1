@@ -5,15 +5,15 @@ class Judge extends CI_Model {
   
     public function hash($hash,$source){
     //对接收hash预处理
-
-		//hash进入预先实体化，防止初步注入
-        $hashen = $this->hashAndID($hash);
+		//调用Config
+		$this->load->model('WeTrueConfig');
+		$wetConfig = $this->WeTrueConfig->Config();
 
         //写入临时数据库
-        $sql_in_tp="INSERT INTO wet_temporary(tp_hash,tp_source) VALUES ('$hashen','$source')";
+        $sql_in_tp="INSERT INTO wet_temporary(tp_hash,tp_source) VALUES ('$hash','$source')";
         $this->db->query($sql_in_tp);
 
-        $url = PUBLIC_NODE.'v2/transactions/'.$hash;
+        $url = $wetConfig['backendServiceNode'].'v2/transactions/'.$hash;
 
         //屏蔽错误,防止节点暴露（屏蔽符：@ ）
         @$json = file_get_contents($url);
@@ -27,7 +27,7 @@ class Judge extends CI_Model {
         $arr = (array) json_decode($json,true);
 
         //过滤无效预设钱包
-        if(empty($arr['tx']['recipient_id']=='ak_dMyzpooJ4oGnBVX35SCvHspJrq55HAAupCwPQTDZmRDT5SSSW')){
+        if(empty($arr['tx']['recipient_id']==$wetConfig['receivingAccount'])){
         	//删除临时缓存
 	        $sql_del_tp="DELETE FROM wet_temporary WHERE tp_hash='$hash'";
 	        $this->db->query($sql_del_tp);
@@ -55,7 +55,7 @@ class Judge extends CI_Model {
 
         //TX获取UTC时间
         $microblock = $arr['block_hash'];
-        $mburl =PUBLIC_NODE.'v2/micro-blocks/hash/'.$microblock.'/header';
+        $mburl =$wetConfig['backendServiceNode'].'v2/micro-blocks/hash/'.$microblock.'/header';
         $mbjson = file_get_contents($mburl);
         $mbarr = (array) json_decode($mbjson,true);
         $arr['block_time']=$mbarr['time'];
@@ -162,6 +162,10 @@ class Judge extends CI_Model {
 
 	public function NewUserActive($sendid_id,$ip){
 	//新用户活动领取AE
+		//调用Config
+		$this->load->model('WeTrueConfig');
+		$wetConfig = $this->WeTrueConfig->Config();
+
 		//过滤IP
 		$Judge_IP = $this->Ip_Bloom($ip);
 		if($Judge_IP=="filter"){
@@ -169,21 +173,18 @@ class Judge extends CI_Model {
 			return "Repeat!";
 		}
 		//查询账户链上记录是否为空
-        $url = PUBLIC_NODE.'v2/accounts/'.$sendid_id;
+        $url = $wetConfig['backendServiceNode'].'v2/accounts/'.$sendid_id;
         //读取节点查询账户
         @$GetUrl = file_get_contents($url);
         //过滤链上记录
         if(empty($GetUrl)){
-			$AeasyApiUrl = 'https://aeasy.io/api/wallet/transfer';//aeasy API
-			$app_id = ''; //aeasy appid
-			$amount = '1'; //活动金额
-			$secretKey = ''; //私钥
+			$AeasyApiUrl = $wetConfig['AeasyApiUrl'];//aeasy API
 			$post_data = array(
-								'app_id'  => $app_id,
-								'address' => $sendid_id,
-								'amount'  => $amount,
-								'signingKey' => $secretKey
-								);
+				'app_id'     => $wetConfig['AeasyApp_id'],
+				'address'    => $sendid_id,
+				'amount'     => $wetConfig['AeasyAmount'],
+				'signingKey' => $wetConfig['AeasySecretKey'],
+			);
 			$postdata = http_build_query($post_data);
 			$options = array(
 							'http' => array(

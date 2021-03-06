@@ -21,11 +21,10 @@ class Comments extends CI_Model {
         $to_data['pageLimit'] = $pageLimit;//数量
         $to_data['totalPage'] = $totalPage;//总页数
         $to_data['totalSize'] = $totalSize;//总数
-
+		$query->free_result();  //释放$query
 
         $sql="SELECT * from wet_comment WHERE to_hash='$hash' order by uid desc";
         $query = $this->db->query($sql);
-
         foreach ($query->result() as $row){
             $sender_id = $row->sender_id;
             $to_data['sender_id'] = $sender_id;
@@ -122,7 +121,7 @@ class Comments extends CI_Model {
 
             //用户活跃搜索及入库
 			$this->load->model('Users');
-			$this->Users->userActive($wetsend,$uactive=2);
+			$this->Users->userActive($wet_sender_id,$active=2);
 
             //入库行为记录
             $sql_insert_behavior="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wet_sender_id','$wet_hash','$wet_type','2','$wet_recipient_id')";

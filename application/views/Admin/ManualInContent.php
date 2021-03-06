@@ -38,7 +38,6 @@
 <script>
 function Manual_In(){
 	const hash = document.getElementById('hash').value;
-    console.log(hash)
     const url = "/Admin/ManualIn/InContent/" + hash;
 	const jqxhr = $.get(url, callback);
 	jqxhr.fail(function(xhr, error, throwerror) {

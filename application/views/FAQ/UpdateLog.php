@@ -15,6 +15,15 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-03-03
+修复部分Bug
+优化代码
+
+2021-03-01
+修复点赞活跃度不增加BUG[感谢 夜空]
+修复评论活跃度不增加BUG[感谢 卖酒的半仙]
+更换全站LOGO[感谢 粗粮]
+
 2021-02-27
 替换懒加载默认图片
 替换favicon默认图标
