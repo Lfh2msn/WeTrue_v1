@@ -16,14 +16,14 @@
                 <div class="input-group">
                     <a href="javascript:;" class="upload_img">
                         <img id="maxImg"  src="">
-                        <input type="file" id="ImgPath" accept="image/*" onclick="return portrait_check();">+
+                        <input type="file" id="ImgPath" accept="image/*" class="avatar-icon rounded" onclick="return portrait_check();">+
                     </a>
                 <div class="input-group ml-2" style="width:200px">
                     <input 
 						name="password" 
 						id="sendPassword" 
 						placeholder="Password" 
-						type="text" 
+						type="text"
 						class="form-control" 
 						maxlength="20" 
 						onkeyup="value=value.replace(/[^A-Za-z0-9.-]/g,'')" 
@@ -44,7 +44,12 @@
 <?php $this->load->view('footer'); ?>
 
 <script language="javascript">
+
 localStorage.setItem("PostsImg","");
+const temporPassWord = sessionStorage.getItem("passWord");
+if(temporPassWord != null){
+	document.getElementById('sendPassword').value = temporPassWord;
+}
 
 function portrait_check(Effect){
     var eleFile = document.querySelector('#ImgPath');

@@ -4,12 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class HotPost extends CI_Model {
 
     public function GetHotPosts($pageNum,$pageLimit){
-    //分页数据-最新发布、最新回复
+    //分页数据-热点推荐
         if($pageNum<1){$pageNum=1;}
         if($pageLimit<1){$pageLimit=1;}
 
         $this->load->database();
-        $FifteenTime = (time()-86400*5)*1000;//86400秒*10天*1000毫秒
+		$this->load->model('Config');
+		$wetConfig = $this->Config->WetConfig();
+        $FifteenTime = (time()-60 * 60 *24 * $wetConfig['hotPostDay'])*1000;//86400秒*x天*1000毫秒
         $sql="SELECT count(*) from wet_content WHERE utctime >= $FifteenTime";
         $query = $this->db->query($sql);
         $row = $query->row();

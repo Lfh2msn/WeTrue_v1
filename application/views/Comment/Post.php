@@ -44,6 +44,10 @@
 
         
 <script type="text/javascript">
+const temporPassWord = sessionStorage.getItem("passWord");
+if(temporPassWord != null){
+	document.getElementById('sendPassword').value = temporPassWord;
+}
 function pwd_check(){
     document.getElementById("result").innerHTML  = "";
     var payload = document.getElementById('payload');

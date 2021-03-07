@@ -63,6 +63,10 @@
 <?php $this->load->view('footer'); ?>
 
 <script type="text/javascript">
+const temporPassWord = sessionStorage.getItem("passWord");
+if(temporPassWord != null){
+	document.getElementById('sendPassword').value = temporPassWord;
+}
 	//先将提示展示出来
 	$("#Tips").show();
 	$(function() {

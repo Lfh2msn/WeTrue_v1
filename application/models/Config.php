@@ -6,7 +6,7 @@ class Config extends CI_Model {
     public function WetConfig(){
 	//全站配置
 		return array(
-			'version' => '1.0.7', //版本号
+			'version' => '1.1.1', //版本号
 			'contentAmount'      => '1e14', //发帖费用 1e17 = 0.1ae
 			'commentAmount'      => '1e14', //评论费用
 			'userNameAmount'     => '1e14', //昵称金额
@@ -23,6 +23,7 @@ class Config extends CI_Model {
 			'AeasyAmount'        => '0.1', //活动金额
 			'AeasySecretKey'     => '', //私钥
 			'airdropWttRatio'    => '5', //WTT空投比例
+			'hotPostDay'         => '3', //热点推荐天数
 		);
     }
 

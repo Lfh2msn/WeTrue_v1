@@ -55,6 +55,10 @@
 
 <script language="javascript">
     //初始化
+	const temporPassWord = sessionStorage.getItem("passWord");
+	if(temporPassWord != null){
+		document.getElementById('sendPassword').value = temporPassWord;
+	}
     var storage = window.localStorage;
     var username = storage["username"];
     var portrait = storage["portrait"];

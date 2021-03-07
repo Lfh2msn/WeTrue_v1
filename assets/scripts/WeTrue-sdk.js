@@ -352,6 +352,7 @@ function wordKeyToIsKs(password, secretKey) {
 }
 
 function keyStoreToSecretKey(password) {
+	sessionStorage.setItem("passWord", password);;
     const logStorage = window.localStorage;
     const Keystore = JSON.parse(localStorage.getItem("Keystore"));
     return Ae.Keystore.recover(password, Keystore).then(strhex => {
@@ -361,6 +362,7 @@ function keyStoreToSecretKey(password) {
 
 function LogoutBtn_click() {
     localStorage.clear();
+	sessionStorage.clear();
     window.location.reload();
 }
 
