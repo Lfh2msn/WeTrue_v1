@@ -105,16 +105,39 @@ $(document).ready(() => {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
+	
+	$(".open-right-drawer").click(function() {
+		$(this).addClass("is-active"),
+		$(".app-drawer-wrapper").addClass("drawer-open"),
+		$(".app-drawer-overlay").removeClass("d-none")
+	});
 
-    $('.mobile-toggle-nav').click(function () {
-        $(this).toggleClass('is-active');
-        $('.app-container').toggleClass('sidebar-mobile-open');
-    });
+	$(".drawer-nav-btn").click(function() {
+		$(".app-drawer-wrapper").removeClass("drawer-open"),
+		$(".app-drawer-overlay").addClass("d-none"),
+		$(".open-right-drawer").removeClass("is-active")
+	});
 
-    $('.mobile-toggle-header-nav').click(function () {
-        $(this).toggleClass('active');
-        $('.app-header__content').toggleClass('header-mobile-open');
-    });
+	$(".app-drawer-overlay").click(function() {
+		$(this).addClass("d-none"),
+		$(".app-drawer-wrapper").removeClass("drawer-open"),
+		$(".open-right-drawer").removeClass("is-active")
+	});
+
+	$(".mobile-toggle-nav").click(function() {
+		$(this).toggleClass("is-active"),
+		$(".app-container").toggleClass("sidebar-mobile-open")
+	});
+
+	$(".mobile-toggle-header-nav").click(function() {
+		$(this).toggleClass("active"),
+		$(".app-header__content").toggleClass("header-mobile-open")
+	});
+
+	$(".mobile-app-menu-btn").click(function() {
+		$(".hamburger", this).toggleClass("is-active"),
+		$(".app-inner-layout").toggleClass("open-mobile-menu")
+	});
 
     var resizeClass = function () {
         var win = document.body.clientWidth;

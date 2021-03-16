@@ -52,6 +52,13 @@ class Faq extends CI_Controller {
 		$this->load->view('FAQ/UpdateLog');
 	}
 
+	public function WeTrueToken(){
+		$this->load->model('Config');
+		$Configdata = $this->Config->articleConfig();
+		$this->load->view('header',$Configdata);
+		$this->load->view('FAQ/WeTrueToken');
+	}
+
 	public function AlmostReadyToGo(){
 		$this->load->model('Config');
 		$Configdata = $this->Config->articleConfig();

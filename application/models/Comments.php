@@ -33,10 +33,9 @@ class Comments extends CI_Model {
 			$this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($rp_hash);
             if($Judge_Hash=="ok"){
-				$payload_Passed = $row->payload;
-                $to_data['payload']   = html_entity_decode($payload_Passed);
+                $to_data['payload'] = $row->payload;
             }else{
-                $to_data['payload']   = "Details TX_Hash：&#13;{$hash}";
+                $to_data['payload'] = "Details TX_Hash：&#13;{$hash}";
             }
             $to_data['utctime'] = $row->utctime;
             $to_data['commsum'] = $row->commsum;

@@ -15,6 +15,9 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-03-14
+xxs安全防御[感谢 near Xy²]
+
 2021-03-07 --> 1.1.0
 新增热点推荐时间配置
 新增密码自动填充

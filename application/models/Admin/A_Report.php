@@ -36,8 +36,7 @@ class A_Report extends CI_Model {
             $cnquery = $this->db->query($cnsql);
             if ($cnquery->num_rows() > 0){
             	$nrow = $cnquery->row(); 
-            	$payload_sc = mb_substr($nrow->payload,0,80);
-                $todata['payload'] = html_entity_decode($payload_sc);
+                $todata['payload'] = mb_substr($nrow->payload,0,80);
                 $imgtx_sc = $nrow->imgtx;
                 $todata['imgtx'] =  htmlentities($imgtx_sc);
             	$todata['utctime'] = $nrow->utctime;
@@ -47,8 +46,7 @@ class A_Report extends CI_Model {
             	$cmsql="SELECT * from wet_comment WHERE hash='$rp_hash' LIMIT 1";
             	$cmquery = $this->db->query($cmsql);
             	$mrow    = $cmquery->row(); 
-            	$payload_sc = mb_substr($mrow->payload,0,80);
-                $todata['payload'] = html_entity_decode($payload_sc);
+                $todata['payload'] = mb_substr($mrow->payload,0,80);
                 $todata['imgtx']   = "";
             	$todata['utctime'] = $mrow->utctime;
 	            $todata['commsum'] = $mrow->commsum;
@@ -97,8 +95,7 @@ class A_Report extends CI_Model {
                 $sender_id = $nrow->sender_id;
                 $todata['sender_id'] = $sender_id;
                 $todata['sender_id_show'] = substr($sender_id,-5);
-                $payload_sc = mb_substr($nrow->payload,0,80);
-                $todata['payload'] = html_entity_decode($payload_sc);
+                $todata['payload'] = mb_substr($nrow->payload,0,80);
                 $imgtx_sc = $nrow->imgtx;
                 $todata['imgtx'] =  htmlentities($imgtx_sc);
             	$todata['utctime'] = $nrow->utctime;
@@ -111,8 +108,7 @@ class A_Report extends CI_Model {
                 $sender_id = $mrow->sender_id;
                 $todata['sender_id'] = $sender_id;
                 $todata['sender_id_show'] = substr($sender_id,-5);
-            	$payload_sc = mb_substr($mrow->payload,0,80);
-                $todata['payload'] = html_entity_decode($payload_sc);
+                $todata['payload'] = mb_substr($mrow->payload,0,80);
                 $todata['imgtx']   = "";
             	$todata['utctime'] = $mrow->utctime;
 	            $todata['commsum'] = $mrow->commsum;

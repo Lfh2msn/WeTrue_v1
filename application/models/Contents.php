@@ -42,9 +42,8 @@ class Contents extends CI_Model {
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
 				$inpayload = $row ->payload;
-                $mbpayload = mb_substr($inpayload,0,80);
-                $todata['payload'] = html_entity_decode($mbpayload);
-                $paylen = mb_strlen($mbpayload,'UTF8');
+                $todata['payload'] = mb_substr($inpayload,0,80);
+                $paylen = mb_strlen($inpayload,'UTF8');
                 if($paylen>=80){$todata['payload'].=" ...";}
                 $imgtx_sc = $row ->imgtx;
                 $todata['imgtx'] =  htmlentities($imgtx_sc);
@@ -83,9 +82,8 @@ class Contents extends CI_Model {
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
-				$inpayload = $row->payload;
+				$data['payload']   = $row->payload;
 				$imgtx = $row->imgtx;
-                $data['payload']   = html_entity_decode($inpayload);
                 if($imgtx!=""){
                     $data['imgtx'] = '<div class="autoimg_div imgLoading"><img class="autoimg_img clickMaxImg" src="/assets/images/wet-loading.jpg" data-src="/Tools/hashToimg/'.$imgtx.'"></div>';
                 }else{
@@ -115,10 +113,9 @@ class Contents extends CI_Model {
             $this->load->model('Judge');
             $Judge_Hash = $this->Judge->TxBloom($hash);
             if($Judge_Hash=="ok"){
-				$inpayload = $row->payload;
+				$data['payload'] = $row->payload;
 				$imgtx = $row->imgtx;
                 $data['to_hash'] = 'Reply To: <a href="/Content/Tx/'.$row->to_hash.'">'.substr($row->to_hash,0,9).'****'.substr($row->to_hash,-14).'</a>';
-                $data['payload']   = html_entity_decode($inpayload);
                 $data['imgtx'] = "";
             }else{
                 $data['payload']   = "Details TX_Hash：&#13;{$hash}";

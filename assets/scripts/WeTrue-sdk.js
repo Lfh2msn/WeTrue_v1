@@ -347,12 +347,13 @@ async function Login_click() {
 
 function wordKeyToIsKs(password, secretKey) {
     Ae.Keystore.dump("WeTrueWallet", password, secretKey).then(Keystore => {
+		sessionStorage.setItem("passWord", password);
         localStorage.setItem("Keystore", JSON.stringify(Keystore));
     });
 }
 
 function keyStoreToSecretKey(password) {
-	sessionStorage.setItem("passWord", password);;
+	sessionStorage.setItem("passWord", password);
     const logStorage = window.localStorage;
     const Keystore = JSON.parse(localStorage.getItem("Keystore"));
     return Ae.Keystore.recover(password, Keystore).then(strhex => {

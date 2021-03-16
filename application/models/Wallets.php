@@ -45,9 +45,8 @@ class Wallets extends CI_Model {
 			$Judge_Hash = $this->Judge->TxBloom($hash);
 			if($Judge_Hash=="ok"){
 				$inpayload = $row->payload;
-				$mbpayload = mb_substr($inpayload,0,80);
-				$todata['payload'] = html_entity_decode($mbpayload);
-				$paylen = mb_strlen($mbpayload,'UTF8');
+				$todata['payload'] = mb_substr($inpayload,0,80);
+				$paylen = mb_strlen($inpayload,'UTF8');
 				if($paylen>=80){$todata['payload'].=" ...";}
 				$imgtx_sc = $row->imgtx;
 				$todata['imgtx'] =  htmlentities($imgtx_sc);

@@ -75,7 +75,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="http://coolriver.github.io/blog/pages/openerTest/target.html" target="_blank" rel="noopener noreferrer">
+                                <a href="https://aepp.aechina.io" target="_blank" rel="noopener noreferrer">
                                     <i class="metismenu-icon fas fa-cubes"></i>Aepps
                                 </a>
                             </li>
@@ -124,7 +124,7 @@
                                     <li>
                                         <a href="/faq/cost">
                                         <i class="metismenu-icon"></i>
-                                        <n i18n="Charge">为何收费及如何收费</n>
+                                        <n i18n="Charge">为何收费</n>
                                         </a>
                                     </li>
                                 </ul>
@@ -135,10 +135,16 @@
                                     <n i18n="UpdateLog">更新日志</n>
                                 </a>
                             </li>
+							<li>
+                                <a href="/faq/WeTrueToken">
+                                    <i class="metismenu-icon fas fa-plane"></i>
+                                    WeTrue Token
+                                </a>
+                            </li>
                             <li>
                                 <a href="/faq/AlmostReadyToGo">
-                                    <i class="metismenu-icon fas fa-plane-departure">
-                                    </i>WeTrue To Go
+                                    <i class="metismenu-icon fas fa-plane-departure"></i>
+									WeTrue To Go
                                 </a>
                             </li>
                         </ul>

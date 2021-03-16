@@ -19,7 +19,6 @@
                     <li class="nav-item report" id="<?php echo $sender_id;?>" hash="<?php echo $txhash;?>">
                         <a class="nav-link">
                             <i class="nav-link-icon pe-7s-door-lock"></i><span i18n="Report">举报</span>
-                            <div class="ml-auto badge badge-pill badge-secondary">New</div>
                         </a>
                     </li>
                     <li class="nav-item">
