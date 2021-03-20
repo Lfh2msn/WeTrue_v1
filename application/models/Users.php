@@ -38,17 +38,25 @@ class Users extends CI_Model {
 		return $data;
 	}
 
-	public function userActive($address,$active){
+	public function userActive($address,$active,$e=''){
 	//用户活跃搜索及入库
 		$sql_select_address="SELECT address FROM wet_users WHERE address='$address' LIMIT 1";
 		$count_address = $this->db->query($sql_select_address);
 		if($count_address->num_rows()==0){ //如果没有记录
 			$sql_insert="INSERT INTO wet_users(address) VALUES ('$address')";
 			$this->db->query($sql_insert);
-			$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
+			if(!$e){
+				$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
+			}else{
+				$sql_update="UPDATE wet_users SET uactive=uactive-'$active' WHERE address='$address'";
+			}
 			$this->db->query($sql_update);
 		}else{
-			$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
+			if(!$e){
+				$sql_update="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$address'";
+			}else{
+				$sql_update="UPDATE wet_users SET uactive=uactive-'$active' WHERE address='$address'";
+			}
 			$this->db->query($sql_update);
 		}
 	}

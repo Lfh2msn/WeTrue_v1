@@ -1,4 +1,3 @@
-
     <div class="col-md-12 app-inner-layout__content card">
         <div class="pb-1 pl-1 pr-1 pt-3">
             <div class="tab-content">
@@ -34,12 +33,12 @@
                             <div data-parent="#accordion" id="collapseOne2" class="collapse">
                                 <div class="card-body">
                         你的Wetrue活跃度将与你在Wetrue发帖、评价、点赞等行为密切相关，具体如下：<br><br>
-                            发帖 +5<br>
-                            评价 +2<br>
-                            点赞 +1<br>
-							头像 +1<br>
-                            昵称 +1<br>
-                            违规 -30
+                            发帖 +<?php echo $contentActive?><br>
+                            评价 +<?php echo $commentActive?><br>
+                            点赞 +<?php echo $loveActive?><br>
+							头像 +<?php echo $userNameActive?><br>
+                            昵称 +<?php echo $portraitActive?><br>
+                            违规 -<?php echo $reportActive?>
                                 </div>
                             </div>
                         </div>

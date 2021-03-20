@@ -15,6 +15,10 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-03-20
+新增屏蔽用户活跃度扣除功能
+新增配置文件活跃度设置
+
 2021-03-14
 xxs安全防御[感谢 near Xy²]
 

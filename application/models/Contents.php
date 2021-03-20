@@ -178,11 +178,14 @@ class Contents extends CI_Model {
             $this->db->query($sql_in_content);
 
 			//用户活跃搜索及入库
+			$this->load->model('Config');
+			$wetConfig = $this->Config->WetConfig();
+			$active = $wetConfig['contentActive'];
 			$this->load->model('Users');
-			$this->Users->userActive($wetsend,$active=5);
+			$this->Users->userActive($wetsend,$active);
             
         //入库行为记录
-        $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','5','$wetrecp')";
+        $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','$active','$wetrecp')";
         $this->db->query($sql_in_beh);
 
         //删除临时缓存

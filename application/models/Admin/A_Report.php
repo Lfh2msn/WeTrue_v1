@@ -126,51 +126,58 @@ class A_Report extends CI_Model {
 
     //接收屏蔽数据
     public function RpTx($rp_hash,$rp_sender_id,$informant){
-    $this->load->database();
-    $sql_qy_bf="SELECT bf_hash FROM wet_bloom WHERE bf_hash='$rp_hash' LIMIT 1";
-    //查询是否已屏蔽
-    $qybf = $this->db->query($sql_qy_bf);
-    if($qybf->num_rows()==0){
-        //屏蔽入库
-        $sql_in_bf="INSERT INTO wet_bloom(bf_hash,bf_reason) VALUES ('$rp_hash','admin_bf')";
-        $this->db->query($sql_in_bf);
-        //删除举报记录
-        $sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
-        $this->db->query($sql_del_rp);
-        //行为记录
-        $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,toaddress) VALUES ('$informant','$rp_hash','Admin_BF','$rp_sender_id')";
-        $this->db->query($sql_in_beh);
-        echo "屏蔽成功...";
-        $this->output->delete_cache('/Content/Tx/'.$rp_hash);
-        $this->output->delete_cache('/Comment/Tx/'.$rp_hash);
-    }else{
-        $sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
-        $this->db->query($sql_del_rp);
-        echo "已屏蔽过...";
-        }
+
+		$this->load->database();
+		$sql_qy_bf="SELECT bf_hash FROM wet_bloom WHERE bf_hash='$rp_hash' LIMIT 1";
+		//查询是否已屏蔽
+		$qybf = $this->db->query($sql_qy_bf);
+		$this->load->model('Config');
+		$wetConfig = $this->Config->WetConfig();
+		$active = $wetConfig['reportActive'];
+		if($qybf->num_rows()==0){
+			//屏蔽入库
+			$sql_in_bf="INSERT INTO wet_bloom(bf_hash,bf_reason) VALUES ('$rp_hash','admin_bf')";
+			$this->db->query($sql_in_bf);
+			//扣除积分//用户活跃搜索及入库
+			$this->load->model('Users');
+			$this->Users->userActive($rp_sender_id,$active,$e='Less');
+			//删除举报记录
+			$sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
+			$this->db->query($sql_del_rp);
+			//行为记录
+			$sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$informant','$rp_hash','Admin_BF','-$active','$rp_sender_id')";
+			$this->db->query($sql_in_beh);
+			echo "屏蔽成功...";
+			$this->output->delete_cache('/Content/Tx/'.$rp_hash);
+			$this->output->delete_cache('/Comment/Tx/'.$rp_hash);
+		}else{
+			$sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
+			$this->db->query($sql_del_rp);
+			echo "已屏蔽过...";
+		}
     }
 
     //接收取消屏蔽数据
     public function UnRpTx($rp_hash,$rp_sender_id,$informant){
-    $this->load->database();
-    $sql_qy_bf="SELECT bf_hash FROM wet_bloom WHERE bf_hash='$rp_hash' LIMIT 1";
-    //查询是否已屏蔽
-    $qybf = $this->db->query($sql_qy_bf);
-    if($qybf->num_rows()==0){
-        //删除举报记录
-        $sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
-        $this->db->query($sql_del_rp);
-        echo "未屏蔽...";
-    }else{
-        $sql_del_bf="DELETE FROM wet_bloom WHERE bf_hash='$rp_hash'";
-        $this->db->query($sql_del_bf);
+		$this->load->database();
+		$sql_qy_bf="SELECT bf_hash FROM wet_bloom WHERE bf_hash='$rp_hash' LIMIT 1";
+		//查询是否已屏蔽
+		$qybf = $this->db->query($sql_qy_bf);
+		if($qybf->num_rows()==0){
+			//删除举报记录
+			$sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
+			$this->db->query($sql_del_rp);
+			echo "未屏蔽...";
+		}else{
+			$sql_del_bf="DELETE FROM wet_bloom WHERE bf_hash='$rp_hash'";
+			$this->db->query($sql_del_bf);
 
-        $sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
-        $this->db->query($sql_del_rp);
-        echo "已取消屏蔽...";
-        $this->output->delete_cache('/Content/Tx/'.$rp_hash);
-        $this->output->delete_cache('/Comment/Tx/'.$rp_hash);
-        }
-    }
+			$sql_del_rp="DELETE FROM wet_report WHERE rp_hash='$rp_hash'";
+			$this->db->query($sql_del_rp);
+			echo "已取消屏蔽...";
+			$this->output->delete_cache('/Content/Tx/'.$rp_hash);
+			$this->output->delete_cache('/Comment/Tx/'.$rp_hash);
+			}
+	}
 
 }

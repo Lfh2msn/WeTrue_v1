@@ -34,19 +34,22 @@ class Portraits extends CI_Model {
             //用户活跃搜索及入库
             $sql_sel_add="SELECT address FROM wet_users WHERE address='$wetsend' LIMIT 1";
             $countadd = $this->db->query($sql_sel_add);
+			$this->load->model('Config');
+			$wetConfig = $this->Config->WetConfig();
+			$active = $wetConfig['portraitActive'];
 			if($countadd->num_rows()==0){
 				$sql_in_users="INSERT INTO wet_users(address,portrait,maxportrait) VALUES ('$wetsend','$wetpayin','$wethash')";
 				$this->db->query($sql_in_users);
 
-				$sql_up_users="UPDATE wet_users SET uactive=uactive+1 WHERE address='$wetsend'";
+				$sql_up_users="UPDATE wet_users SET uactive=uactive+'$active' WHERE address='$wetsend'";
 				$this->db->query($sql_up_users);
 			}else{
-				$sql_up_users="UPDATE wet_users SET portrait='$wetpayin',maxportrait='$wethash',uactive=uactive+1 WHERE address='$wetsend'";
+				$sql_up_users="UPDATE wet_users SET portrait='$wetpayin',maxportrait='$wethash',uactive=uactive+'$active' WHERE address='$wetsend'";
 				$this->db->query($sql_up_users);
 			}
 
             //入库行为记录
-            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','1','$wetrecp')";
+            $sql_in_beh="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wetsend','$wethash','$wettype','$active','$wetrecp')";
             $this->db->query($sql_in_beh);
 
             //删除临时缓存

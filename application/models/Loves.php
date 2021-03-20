@@ -27,11 +27,14 @@ class Loves extends CI_Model {
                 $this->db->query($sql_in);
 
                 //用户活跃搜索及入库
-			$this->load->model('Users');
-			$this->Users->userActive($sender_id,$active=1);
+				$this->load->model('Config');
+				$wetConfig = $this->Config->WetConfig();
+				$active = $wetConfig['loveActive'];
+				$this->load->model('Users');
+				$this->Users->userActive($sender_id,$active);
 
             //入库行为记录
-            $sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','con_zan','1','$hash')";
+            $sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','con_zan','$active','$hash')";
             $this->db->query($sql_in_beh);
 
                 $sql="SELECT love FROM wet_content WHERE hash='$hash' LIMIT 1";
@@ -87,11 +90,14 @@ class Loves extends CI_Model {
                 $this->db->query($sql_in);
 
                 //用户活跃搜索及入库
+				$this->load->model('Config');
+				$wetConfig = $this->Config->WetConfig();
+				$loveActive = $wetConfig['loveActive'];
 				$this->load->model('Users');
-				$this->Users->userActive($sender_id,$uactive=1);
+				$this->Users->userActive($sender_id,$uactive = $loveActive);
 
 				//入库行为记录
-				$sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','com_zan','1','$hash')";
+				$sql_in_beh="INSERT INTO wet_behavior(address,thing,influence,toaddress) VALUES ('$sender_id','com_zan','$loveActive','$hash')";
 				$this->db->query($sql_in_beh);
 
                 $sql="SELECT love FROM wet_comment WHERE hash='$hash' LIMIT 1";

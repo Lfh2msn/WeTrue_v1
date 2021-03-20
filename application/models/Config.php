@@ -22,8 +22,15 @@ class Config extends CI_Model {
 			'AeasyApp_id'        => '', //Aeasy.io appid
 			'AeasyAmount'        => '0.1', //活动金额
 			'AeasySecretKey'     => '', //私钥
-			'airdropWttRatio'    => '5', //WTT空投比例
+			'airdropWttRatio'    => '3', //WTT空投比例
 			'hotPostDay'         => '3', //热点推荐天数
+
+			'contentActive'      => '5', //发帖增加活跃度
+			'commentActive'      => '2', //评论增加活跃度
+			'loveActive'         => '1', //发帖增加活跃度
+			'userNameActive'     => '1', //昵称增加活跃度
+			'portraitActive'     => '1', //头像增加活跃度
+			'reportActive'       => '30',//举报扣除活跃度
 		);
     }
 
@@ -46,6 +53,13 @@ class Config extends CI_Model {
 			'AepercentChange'  => $aePrice['percentChange'], //涨跌百分比
 			'Aehigh24hr'       => $aePrice['high24hr'], //24小时最高
 			'Aelow24hr'        => $aePrice['low24hr'], //24小时最低
+
+			'contentActive'    => $wetConfig['contentActive'],
+			'commentActive'    => $wetConfig['commentActive'],
+			'loveActive'       => $wetConfig['loveActive'],
+			'userNameActive'   => $wetConfig['userNameActive'],
+			'portraitActive'   => $wetConfig['portraitActive'],
+			'reportActive'     => $wetConfig['reportActive'],
 		);
     }
 

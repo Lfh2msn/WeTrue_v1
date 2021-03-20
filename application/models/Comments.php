@@ -119,11 +119,14 @@ class Comments extends CI_Model {
             $this->db->query($sql_insert);
 
             //用户活跃搜索及入库
+			$this->load->model('Config');
+			$wetConfig = $this->Config->WetConfig();
+			$active = $wetConfig['commentActive'];
 			$this->load->model('Users');
-			$this->Users->userActive($wet_sender_id,$active=2);
+			$this->Users->userActive($wet_sender_id,$active);
 
             //入库行为记录
-            $sql_insert_behavior="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wet_sender_id','$wet_hash','$wet_type','2','$wet_recipient_id')";
+            $sql_insert_behavior="INSERT INTO wet_behavior(address,hash,thing,influence,toaddress) VALUES ('$wet_sender_id','$wet_hash','$wet_type','$active','$wet_recipient_id')";
             $this->db->query($sql_insert_behavior);
 
             //删除临时缓存
