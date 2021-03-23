@@ -6,7 +6,7 @@ class Config extends CI_Model {
     public function WetConfig(){
 	//全站配置
 		return array(
-			'version' => '1.1.2', //版本号
+			'version' => '1.2.0', //版本号
 			'contentAmount'      => '1e14', //发帖费用 1e17 = 0.1ae
 			'commentAmount'      => '1e14', //评论费用
 			'userNameAmount'     => '1e14', //昵称金额
