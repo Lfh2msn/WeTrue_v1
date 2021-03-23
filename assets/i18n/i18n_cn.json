@@ -44,5 +44,15 @@
 	"Bits": "位",
 	"Consumption": "消耗",
 	"Search": "搜索",
-	"AskFor": "索取"
+	"AskFor": "索取",
+	"Other": "其它",
+	"Statistic": "全站数据",
+	"totalStatistics": "数据统计",
+	"statisticalDescription": "此页面缓存12小时。上次统计时间：",
+	"totalContent": "累计主贴",
+	"totalComment": "累计评论",
+	"activeUser": "活跃用户",
+	"totalUser": "累计用户",
+	"totalLike": "累计点赞",
+	"totalActivity": "累计活跃"
 }

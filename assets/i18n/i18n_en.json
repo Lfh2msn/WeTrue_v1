@@ -44,5 +44,15 @@
 	"Bits": "Bits",
 	"Consumption": "Consumption",
 	"Search": "Search",
-	"AskFor": "Ask For"
+	"AskFor": "Ask For",
+	"Other": "Other",
+	"Statistic": "Statistic",
+	"totalStatistics": "Total Statistics",
+	"statisticalDescription": "This page is cached for 12 hours.Last statistical time:",
+	"totalContent": "Total Content",
+	"totalComment": "Total Comment",
+	"activeUser": "Active User",
+	"totalUser": "Total User",
+	"totalLike": "Total Like",
+	"totalActivity": "Total Activity"
 }

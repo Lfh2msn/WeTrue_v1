@@ -29,7 +29,8 @@
                             </span>
                         </button>
                     </span>
-                </div>    <div class="scrollbar-sidebar">
+                </div>
+				<div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading"><span i18n="based">基于</span> Aeternity</li>
@@ -68,6 +69,28 @@
                                     </li>
                                 </ul>
                             </li>
+							<li class="">
+                                <a href="#">
+									<i class="metismenu-icon fab fa-app-store"></i>
+                                    <span i18n="Other">数据</span>
+                                    <i class="metismenu-state-icon fas fa-angle-down"></i>
+                                </a>
+                                <ul class="">
+                                    <li>
+                                        <a href="/Statistic">
+                                            <i class="metismenu-icon"></i>
+                                            <span i18n="Statistic">全站数据</span>
+                                        </a>
+                                    </li>
+									<!--
+									<li>
+                                        <a href="/HotPosts">
+                                            <span i18n="HotPosts">热点推荐</span>
+                                        </a> 
+                                    </li>
+                                    -->
+                                </ul>
+                            </li>
                             <li class="app-sidebar__heading" i18n="Partners">合作伙伴</li>
                             <li>
                                 <a href="https://www.aechina.io" target="_blank" rel="noopener noreferrer">
@@ -87,6 +110,11 @@
                             <li>
                                 <a href="http://aeasy.io/" target="_blank" rel="noopener noreferrer">
                                     <i class="metismenu-icon fab fa-codepen"></i>AEasy
+                                </a>
+                            </li>
+							<li>
+                                <a href="https://hebe.cc/" target="_blank" rel="noopener noreferrer">
+                                    <i class="metismenu-icon fas fa-h-square"></i>Hebe Wallet
                                 </a>
                             </li>
                             <li class="app-sidebar__heading" i18n="Help">帮助及介绍</li>
