@@ -78,7 +78,6 @@ $(document).ready(() => {
         $(this).parent().removeClass('active');
     });
 
-
     $('.dropdown-menu').on('click', function (event) {
         var events = $._data(document, 'events') || {};
         events = events.click || [];
