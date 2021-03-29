@@ -15,6 +15,10 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-03-29
+新增WTT显示
+修复AE金额跨域问题
+
 2021-03-23 --> 1.2.0
 新增全站数据统计
 
