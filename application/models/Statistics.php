@@ -38,7 +38,6 @@ class Statistics extends CI_Model {
         $data['totalActivity'] = $row->sum;
 	//Statistics Time
 		$data['statisticsTime'] = strtotime("now")*1000;
-
 		return json_encode($data);
     }
 

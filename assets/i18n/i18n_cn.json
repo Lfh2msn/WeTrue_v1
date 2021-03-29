@@ -48,7 +48,7 @@
 	"Other": "其它",
 	"Statistic": "全站数据",
 	"totalStatistics": "数据统计",
-	"statisticalDescription": "此页面缓存12小时。上次统计时间：",
+	"statisticalTime": "统计时间",
 	"totalContent": "累计主贴",
 	"totalComment": "累计评论",
 	"activeUser": "活跃用户",

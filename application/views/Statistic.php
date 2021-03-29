@@ -8,7 +8,7 @@
 				</div>
 				<div><n i18n="totalStatistics">Total Statistics</n>
 					<div class="page-title-subheading">
-						<n i18n="statisticalDescription">This page is cached for 12 hours.Statistics Time:</n>
+						<n i18n="statisticalTime">Statistics Time</n>:
 						<n class="statisticsTime">0000-00-00 00:00:00</n>
 					</div>
 				</div>

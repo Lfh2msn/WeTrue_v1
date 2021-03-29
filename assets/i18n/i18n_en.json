@@ -48,7 +48,7 @@
 	"Other": "Other",
 	"Statistic": "Statistic",
 	"totalStatistics": "Total Statistics",
-	"statisticalDescription": "This page is cached for 12 hours.Last statistical time:",
+	"statisticalTime": "Statistical Time",
 	"totalContent": "Total Content",
 	"totalComment": "Total Comment",
 	"activeUser": "Active User",

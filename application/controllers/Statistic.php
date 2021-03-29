@@ -15,7 +15,6 @@ class Statistic extends CI_Controller {
     //统计数据
 		$this->load->model('Statistics');
 		$data = $this->Statistics->Total();
-		$this->output->cache(720);
 		echo $data;
 	}
 
