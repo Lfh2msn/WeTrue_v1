@@ -15,6 +15,13 @@
                                 <div class="card-body">
                                 <textarea class="form-control-plaintext text_ZeroFrame autosize-input" style="max-height:600px;" readonly>
 WeTrue.io 更新历程
+2021-04-06
+修复xss修改而忽略的搜索错误
+
+2021-03-29
+新增WTT显示
+修复AE金额跨域问题
+
 2021-03-23 --> 1.2.0
 新增全站数据统计
 
@@ -26,9 +33,9 @@ WeTrue.io 更新历程
 新增配置文件活跃度设置
 
 2021-03-14
-xxs安全防御[感谢 near Xy²]
+xss安全防御[感谢 near Xy²]
 
-2021-03-07 --> 1.1.1
+2021-03-07 --> 1.1.0
 新增热点推荐时间配置
 新增密码自动填充
 

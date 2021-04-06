@@ -37,7 +37,9 @@ class Searchs extends CI_Model {
 			$Judge_Hash = $this->Judge->TxBloom($hash);
 			if($Judge_Hash=="ok"){
 				$inpayload = $row->payload;
-				$todata['payload'] = mb_substr($inpayload,0,80);
+				$inpayload = $row->payload;
+				$mbpayload = mb_substr($inpayload,0,80);
+				$todata['payload'] = $mbpayload;
 				$paylen = mb_strlen($mbpayload,'UTF8');
 				if($paylen>=80){$todata['payload'].=" ...";}
 				$imgtx_sc = $row->imgtx;
