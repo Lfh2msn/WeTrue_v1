@@ -58,7 +58,6 @@ var sendid_id = '<?php echo $sendid_id ?>';
 set_durl();
 autoScroll();
 
-
 function set_durl(attribute){
 	if(attribute == "comm"){
 		Wallet_url = "/Wallet/Comment/";
@@ -66,6 +65,7 @@ function set_durl(attribute){
 		Follow_Types = 'Content';
 		document.getElementById("list_box").innerHTML = "";
 		get_content(1);
+		TokenCall();
 	}else if(attribute == "wing"){
 		Wallet_url = "/Wallet/Following/";
 		Follow_Types = 'Follow';
@@ -82,6 +82,7 @@ function set_durl(attribute){
 		Follow_Types = 'Content';
 		document.getElementById("list_box").innerHTML = "";
 		get_content(1);
+		TokenCall();
 	}
 
 }
@@ -92,7 +93,6 @@ function get_content(dstr){
     	pageNum = 1;
     	lastpangenum = -1;
     }
-
     if (pageNum != lastpangenum) {
         $.post(Wallet_url,{'pageNum':pageNum,'pageLimit':pageLimit,'sendid_id':sendid_id},
         function(jitem){
@@ -105,13 +105,15 @@ function get_content(dstr){
                 				<div class="app-page-title mb-3">
                                     <div class="page-title-wrapper">
                                         <div class="page-title-heading">
-                                        	<img width="80" height="80" src="${item[0].users.portrait}">
+                                        	<img width="90" height="90" src="${item[0].users.portrait}">
                                             <div class="btn-group">
                                                 <div class="ml-1">${item[0].users.username} ${item[0].users.uactive}
 													<div class="page-title-subheading"><n i18n="Active">活跃度</n> : 
 													${item[0].users.active}
 													</div>
-													<div class="page-title-subheading">WTT : ${item[0].users.lastActive} (待入账)
+													<div class="page-title-subheading">
+														WTT : <n class="token"></n>
+														<br>待入账WTT : ${item[0].users.lastActive}
 													</div>
 												</div>
                                                 <div class="page-title-actions ml-5">
@@ -199,6 +201,20 @@ lastpangenum = pageNum;
     }
 }
 
+async function TokenCall(){
+	var aeknowUrl = 'https://www.aeknow.org/api/token/' + sendid_id;
+	$.get(aeknowUrl,function(data){
+		const json = $.parseJSON(data);
+		const tokens = json.tokens;
+		for(i in tokens){
+			if (tokens[i].tokenname == 'WTT'){
+				const token = tokens[i].balance;
+				const tokenBalance = balanceDC(token);
+				 $('.token').html(tokenBalance);
+			}
+		}
+	});
+}
 
 function autoScrolla(){
 
